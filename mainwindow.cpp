@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "qglobal.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -40,15 +41,32 @@ void MainWindow::on_actionRefresh_triggered()
   //We must load all the movies files in the current directory into the table
   QDir *dirCurrent =  new QDir(QDir::currentPath());
 
-  QStringList *strlstFiles = new QStringList(dirCurrent->entryList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
+  //QStringList *strlstFiles = new QStringList(dirCurrent->entryList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
 
-  qDebug()<<*strlstFiles;
+  QList <QFileInfo> filstFiles(dirCurrent->entryInfoList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
+
+
+
+  //qDebug()<<*strlstFiles;
 
   //Add to table (Move to seprate function)
-  int row,column =0;
-  ui->tblMovies->setRowCount(strlstFiles->count());
-  QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg((row+1)*(column+1)));
-  ui->tblMovies->setItem(row, column, newItem);
+  int row=0;
+  ui->tblMovies->setRowCount(filstFiles.count());
+
+   //Set the filenames
+   foreach (const QFileInfo &i, filstFiles) {
+    ui->tblMovies->setItem(row, 0, new QTableWidgetItem(i.fileName()));
+    ui->tblMovies->setItem(row, 1, new QTableWidgetItem(i.absoluteFilePath()));
+    row++;
+   }
 
 
+
+
+
+}
+
+void MainWindow::on_tblMovies_cellClicked(int row, int column)
+{
+    qDebug()<<row<<column;
 }

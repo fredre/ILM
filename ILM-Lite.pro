@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += webkit
 
 TARGET = ILM-Lite
 TEMPLATE = app
