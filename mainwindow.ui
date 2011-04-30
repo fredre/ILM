@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>928</width>
-    <height>479</height>
+    <width>940</width>
+    <height>530</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>928</width>
+     <width>940</width>
      <height>25</height>
     </rect>
    </property>
@@ -37,12 +37,19 @@
    </widget>
    <widget class="QMenu" name="menuMovies">
     <property name="title">
-     <string>Movies</string>
+     <string>&amp;Movies</string>
     </property>
     <addaction name="actionRefresh"/>
    </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionMovie_Information"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuMovies"/>
+   <addaction name="menu_View"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -55,14 +62,14 @@
    <addaction name="actionRefresh"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget_2">
+  <widget class="QDockWidget" name="dckWdgtMovieInfo">
    <attribute name="dockWidgetArea">
-    <number>1</number>
+    <number>8</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QWebView" name="webView">
+      <widget class="QWebView" name="wbVwMovieInfi">
        <property name="url">
         <url>
          <string>about:blank</string>
@@ -80,10 +87,15 @@
   </action>
   <action name="actionRefresh">
    <property name="text">
-    <string>Refresh</string>
+    <string>&amp;Refresh</string>
    </property>
    <property name="toolTip">
     <string>Click Here to Refresh Movies</string>
+   </property>
+  </action>
+  <action name="actionMovie_Information">
+   <property name="text">
+    <string>Movie &amp;Information</string>
    </property>
   </action>
  </widget>

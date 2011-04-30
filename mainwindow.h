@@ -26,6 +26,8 @@ private slots:
 
     void on_tblMovies_cellClicked(int row, int column);
 
+    void on_actionMovie_Information_triggered();
+
 private:
     Ui::MainWindow *ui;
     QStringList *strlstMovieHeaders; //Headers for tblMovies

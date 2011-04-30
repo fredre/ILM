@@ -60,13 +60,16 @@ void MainWindow::on_actionRefresh_triggered()
     row++;
    }
 
-
-
-
-
 }
 
 void MainWindow::on_tblMovies_cellClicked(int row, int column)
 {
     qDebug()<<row<<column;
+}
+
+void MainWindow::on_actionMovie_Information_triggered()
+{
+  //If the user closed ui->dckWdgtMovieInfo show it again
+  ui->dckWdgtMovieInfo->showNormal();
+
 }
