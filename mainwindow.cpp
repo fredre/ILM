@@ -9,6 +9,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Setup the icon for refresh toobaritem TODO:(Provide fallback for windows)
+    //btw: here are the standard names as defined by freedesktop [http://standards.freedesktop.org/icon-naming-spec/latest/ar01s04.html]
+    QIcon refreshIcon = QIcon::fromTheme("view-refresh");
+    ui->actionRefresh->setIcon(refreshIcon);
+
     //Setup the QStringList that will keep the tblMovies headers
     strlstMovieHeaders = new QStringList();
     strlstMovieHeaders->append("File Name");
@@ -22,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tblMovies->clear();
     ui->tblMovies->setColumnCount(strlstMovieHeaders->count());
     ui->tblMovies->setHorizontalHeaderLabels(*strlstMovieHeaders);
+
+
 
 }
 
