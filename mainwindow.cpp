@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qglobal.h"
+#include "QFileDialog"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -37,9 +38,11 @@ void MainWindow::on_actionE_xit_triggered()
 
 void MainWindow::on_actionRefresh_triggered()
 {
+  //Ask user to select directory
+  QString dir = QFileDialog::getExistingDirectory(this, tr("Open Movie Directory"), "/home",QFileDialog::ShowDirsOnly| QFileDialog::DontResolveSymlinks);
 
-  //We must load all the movies files in the current directory into the table
-  QDir *dirCurrent =  new QDir(QDir::currentPath());
+  //We must load all the movies files in the directory that the user selected
+  QDir *dirCurrent =  new QDir(dir);
 
   //QStringList *strlstFiles = new QStringList(dirCurrent->entryList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
 
