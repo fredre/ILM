@@ -3,6 +3,7 @@
 #include "qglobal.h"
 #include "QFileDialog"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -28,6 +29,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tblMovies->setColumnCount(strlstMovieHeaders->count());
     ui->tblMovies->setHorizontalHeaderLabels(*strlstMovieHeaders);
 
+    //Setup the settings class
+    settings = new QSettings();
+
 
 
 }
@@ -46,16 +50,15 @@ void MainWindow::on_actionE_xit_triggered()
 void MainWindow::on_actionRefresh_triggered()
 {
   //Ask user to select directory
-  QString dir = QFileDialog::getExistingDirectory(this, tr("Open Movie Directory"), "/home",QFileDialog::ShowDirsOnly| QFileDialog::DontResolveSymlinks);
+  QString dir = QFileDialog::getExistingDirectory(this, tr("Open Movie Directory"),settings->value("MovieDir","/home").toString(),QFileDialog::ShowDirsOnly| QFileDialog::DontResolveSymlinks);
 
   //We must load all the movies files in the directory that the user selected
   QDir *dirCurrent =  new QDir(dir);
 
-  //QStringList *strlstFiles = new QStringList(dirCurrent->entryList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
-
   QList <QFileInfo> filstFiles(dirCurrent->entryInfoList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
 
-
+  //Save opened dir as "MovieDir"
+  settings->setValue("MovieDir",dir);
 
   //qDebug()<<*strlstFiles;
 

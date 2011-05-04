@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <qdir.h>
 #include <QtDebug>
+#include <qsettings.h>
 
 
 
@@ -32,6 +33,7 @@ private:
     Ui::MainWindow *ui;
     QStringList *strlstMovieHeaders; //Headers for tblMovies
     QStringList *strlstMovieTypes; //The types of movies that should be loaded
+    QSettings *settings; //Keeps appilcation settings
 };
 
 #endif // MAINWINDOW_H
