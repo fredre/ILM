@@ -20,3 +20,6 @@ FORMS    += mainwindow.ui
 
 RESOURCES += \
     Resources.qrc
+
+OTHER_FILES += \
+    README
