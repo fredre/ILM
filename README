@@ -1,41 +1,41 @@
 ILM - I Love Movies -
 
 
-! Thankyou for visiting !
+! Thank you for visiting !
 
-ILM is a lite movie manager. The idea is that ILM is one executeble file that can run on Linux Windows and Mac. You copy the exe to your movie file run the program and hit refresh.
+ILM is a  movie manager. The idea is that ILM is one executable file that can run on Linux Windows and Mac. You copy the exe to your movie file run the program and hit refresh.
 I shows you all the files you have. Just like an email client it also shows you a "inbox" with movies you have not watched.
 
-When you click on a movie it searches an online movie database for anything mathcing the filename and shows you
-some results. You pick the movie it probably is and see all the information for that movie.It also save that info in HTML in the same folder as the movie for offline retrieval later. If you play the movie the application starts your vavorate media player and it marks it as played and you have one less movie in your "inbox".
-Think of it as the email client of movie managers ;) exept instead of reading emails you are watching movies. I dont need to exaplain all the features of normal email clients like filter and folders and tags ect. But I plan to implement them all.
+When you click on a movie it searches an online movie database for anything matching the file name and shows you
+some results. You pick the movie it probably is and see all the information for that movie.It also save that info in HTML in the same folder as the movie for off-line retrieval later. If you play the movie the application starts your favourite media player and it marks it as played and you have one less movie in your "inbox".
+Think of it as the email client of movie managers ;) except instead of reading emails you are watching movies. I don't need to explain all the features of normal email clients like filter and folders and tags etc.. But I plan to implement them all.
 
-Aditionaly if you visit a friend with your external harddrive you just start ILM. No more opening 1000 files to see what it is about. Your friend just clicks the movie name and reads the info. If he like the movie he marks it for copy. One done all movies are copied along with the HTML file containg the movie info. All your friend
-now needs to do is copy the ILM executeble and presto he can go on were you left of showing all his movies and the ones he just copied from you only they are marked as newly copied so that he does not forget what a great friend you are.
+If you visit a friend with your external hard drive you just start ILM. No more opening 1000 files to see what it is about. Your friend just clicks the movie name and reads the info. If he like the movie he marks it for copy. One done all movies are copied along with the HTML file that contains the movie info. All your friend
+now needs to do is copy the ILM executable and presto he can go on were you left of showing all his movies and the ones he just copied from you only they are marked as newly copied so that he does not forget what a great friend you are.
 
 ! Usability !
 
-Not much at the moment :( but I am working on it. Below is some GUI mockups of what I want in version 1.0.
+Not much at the moment :( but I am working on it. Below is some GUI mock-ups of what I want in version 1.0.
 
 <inser mocups here>
 
 Here is the full list of features planned for version 1.0 and what I have done so far
 
-<feautres here>
+<features here>
 
 ! Can I help !
 
-Sure pick a featuere and brach away. I am doing this because I need it I dont plan to make any money or become famous I just need a program that can fufil my needs and maybe the needs of some others also.
+Sure pick a feature and branch away. I am doing this because I need it I don't plan to make any money or become famous I just need a program that can fulfil my needs and maybe the needs of some others also.
 
 ! More features !
 
-If you have a great idea for a feutre on the list get in touch and implement it. Like I said i am doing this as a labour of love and nothing motevates a person
-like someone showing interest in you project. Even if you just say hallo. I also over comment code and try to write things as simple as possible. I have only been coding with QT for about a month now so that expect any techinical fireworks ;)
+If you have a great idea for a future on the list get in touch and implement it. Like I said I am doing this as a labour of love and nothing motivates a person
+like someone showing interest in you project. Even if you just say hallo. I also over comment code and try to write things as simple as possible. I have only been coding with QT for about a month now so that expect any technical fireworks ;)
 
 ! Technical !
 
 ILM is written in C++ with the QT GUI library. I use QT creator for the IDE.
-My develpment platform is Linux (But it should work on Windows and Mac also)
+My development platform is Linux (But it should work on Windows and Mac also)
 
 ! News !
 
