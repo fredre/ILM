@@ -30,7 +30,7 @@ Not much at the moment :( but I am working on it. Below is some GUI mock-ups of 
 
 ![panda!](https://github.com/tekkub/failpanda/raw/master/failure_panda.jpg)
 
-![Alt text!](https://github.com/fredre/ILM/blob/master/ScreenShots/screen1.png "Planned for version 1")
+![You should see A mockup here](https://github.com/fredre/ILM/raw/master/ScreenShots/screen1.png "Planned for version 1")
 
 
 Here is the full list of features planned for version 1.0 and what I have done so far
