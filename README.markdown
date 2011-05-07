@@ -28,8 +28,6 @@ Usability
 
 Not much at the moment :( but I am working on it. Below is some GUI mock-ups of what I want in version 1.0.
 
-![panda!](https://github.com/tekkub/failpanda/raw/master/failure_panda.jpg)
-
 ![You should see A mockup here](https://github.com/fredre/ILM/raw/master/ScreenShots/screen1.png "Planned for version 1")
 
 
