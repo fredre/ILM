@@ -2,19 +2,19 @@
 ILM - I Love Movies -
 ======================
 
+About ILM
+----------
 
-Thank you for visiting
-----------------------
+I have over 200 movies in all different formats on my hard drive. Knowing what movies I have already seen or would still like to watch is a problem. If I need more information about a movie I have to open my browser to look it up.
+ 
+That is why I am creating ILM. ILM will be like an email client with each movie being one email. Think about all your movies as emails you have not read before. They will be shown in your "Inbox" you will also be able to tag them move them to other folder ect.
+Basically all the features of a modern mail client applied to the concept of organising movies.
 
-ILM is a  movie manager. The idea is that ILM is one executable file that can run on Linux Windows and Mac. You copy the exe to your movie file run the program and hit refresh.
-I shows you all the files you have. Just like an email client it also shows you a "inbox" with movies you have not watched.
+ILM will also look up information about a movie on the Internet and save the information to the same folder where the movie is located. If you are off-line the information is still there. When you add a new movie to your folder it will show up as newly copied. You
+can also see what was newly added in the last day week month or year.
 
-When you click on a movie it searches an online movie database for anything matching the file name and shows you
-some results. You pick the movie it probably is and see all the information for that movie.It also save that info in HTML in the same folder as the movie for off-line retrieval later. If you play the movie the application starts your favourite media player and it marks it as played and you have one less movie in your "inbox".
-Think of it as the email client of movie managers ;) except instead of reading emails you are watching movies. I don't need to explain all the features of normal email clients like filter and folders and tags etc.. But I plan to implement them all.
-
-If you visit a friend with your external hard drive you just start ILM. No more opening 1000 files to see what it is about. Your friend just clicks the movie name and reads the info. If he like the movie he marks it for copy. One done all movies are copied along with the HTML file that contains the movie info. All your friend
-now needs to do is copy the ILM executable and presto he can go on were you left of showing all his movies and the ones he just copied from you only they are marked as newly copied so that he does not forget what a great friend you are.
+When someone needs to browse your collection to see what you have their is no need for them to preview each file in a media player they can just use ILM. If they like what they see they can add 
+the movie to the copy list. Along with the movies and their related information files ILM will also be copied to the user so that they can add their own movies and keep going where you left of. 
 
 News
 ----
@@ -26,7 +26,7 @@ News
 Usability 
 -------------
 
-Not much at the moment :( but I am working on it. Below is some GUI mock-ups of what I want in version 1.0.
+Not much at the moment :( but I am working on it. Below is some GUI mock-ups of what I want in version 1.0
 
 ![You should see A mockup here](https://github.com/fredre/ILM/raw/master/ScreenShots/screen1.png "Planned for version 1")
 
