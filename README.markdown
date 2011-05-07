@@ -16,12 +16,20 @@ Think of it as the email client of movie managers ;) except instead of reading e
 If you visit a friend with your external hard drive you just start ILM. No more opening 1000 files to see what it is about. Your friend just clicks the movie name and reads the info. If he like the movie he marks it for copy. One done all movies are copied along with the HTML file that contains the movie info. All your friend
 now needs to do is copy the ILM executable and presto he can go on were you left of showing all his movies and the ones he just copied from you only they are marked as newly copied so that he does not forget what a great friend you are.
 
+News
+----
+
+### 05/05/2011
+
+> Project is now on github
+
 Usability 
 -------------
 
 Not much at the moment :( but I am working on it. Below is some GUI mock-ups of what I want in version 1.0.
 
-<inser mocups here>
+![Alt text](/path/to/img.jpg "Planned for version 1")
+
 
 Here is the full list of features planned for version 1.0 and what I have done so far
 
@@ -44,17 +52,12 @@ Technical
 ILM is written in C++ with the QT GUI library. I use QT creator for the IDE.
 My development platform is Linux (But it should work on Windows and Mac also)
 
-News
-----
 
-### 05/05/2011
-
-> Yea I have written this document
 
 License 
 -------
 
-This file is part of ILM.
+>This file is part of ILM.
 
     ILM is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
