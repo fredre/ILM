@@ -1,7 +1,10 @@
+
 ILM - I Love Movies -
+======================
 
 
-! Thank you for visiting !
+Thank you for visiting
+----------------------
 
 ILM is a  movie manager. The idea is that ILM is one executable file that can run on Linux Windows and Mac. You copy the exe to your movie file run the program and hit refresh.
 I shows you all the files you have. Just like an email client it also shows you a "inbox" with movies you have not watched.
@@ -13,7 +16,8 @@ Think of it as the email client of movie managers ;) except instead of reading e
 If you visit a friend with your external hard drive you just start ILM. No more opening 1000 files to see what it is about. Your friend just clicks the movie name and reads the info. If he like the movie he marks it for copy. One done all movies are copied along with the HTML file that contains the movie info. All your friend
 now needs to do is copy the ILM executable and presto he can go on were you left of showing all his movies and the ones he just copied from you only they are marked as newly copied so that he does not forget what a great friend you are.
 
-! Usability !
+Usability 
+-------------
 
 Not much at the moment :( but I am working on it. Below is some GUI mock-ups of what I want in version 1.0.
 
@@ -23,22 +27,45 @@ Here is the full list of features planned for version 1.0 and what I have done s
 
 <features here>
 
-! Can I help !
+Can I help 
+-----------
 
 Sure pick a feature and branch away. I am doing this because I need it I don't plan to make any money or become famous I just need a program that can fulfil my needs and maybe the needs of some others also.
 
-! More features !
+More features 
+-------------
 
 If you have a great idea for a future on the list get in touch and implement it. Like I said I am doing this as a labour of love and nothing motivates a person
 like someone showing interest in you project. Even if you just say hallo. I also over comment code and try to write things as simple as possible. I have only been coding with QT for about a month now so that expect any technical fireworks ;)
 
-! Technical !
+Technical
+---------
 
 ILM is written in C++ with the QT GUI library. I use QT creator for the IDE.
 My development platform is Linux (But it should work on Windows and Mac also)
 
-! News !
+News
+----
 
-05/05/2011
+### 05/05/2011
 
-Yea I have written this document
+> Yea I have written this document
+
+License 
+-------
+
+This file is part of ILM.
+
+    ILM is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    ILM is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with ILM.  If not, see <http://www.gnu.org/licenses/>.
+
