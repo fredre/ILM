@@ -22,4 +22,5 @@ RESOURCES += \
     Resources.qrc
 
 OTHER_FILES += \
-    README
+    README \
+    ScreenShots/screen1.png
