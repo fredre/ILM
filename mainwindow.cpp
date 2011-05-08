@@ -50,6 +50,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //Setup the settings class
     settings = new QSettings();
 
+    //Hide the loading progress bar
+    ui->pbLoading->hide();
+
 
 
 }
@@ -120,5 +123,17 @@ void MainWindow::on_actionMovie_Information_triggered()
 
 void MainWindow::on_wbVwMovieInfi_loadStarted()
 {
-  //Show the loading page while something is loading
+  //Show the progress bar
+  ui->pbLoading->show();
+}
+
+void MainWindow::on_wbVwMovieInfi_loadProgress(int progress)
+{
+   //Update the progress bar
+   ui->pbLoading->setValue(progress);
+}
+
+void MainWindow::on_wbVwMovieInfi_loadFinished(bool )
+{
+  ui->pbLoading->hide();
 }
