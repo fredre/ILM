@@ -49,6 +49,10 @@ private slots:
 
     void on_wbVwMovieInfi_loadStarted();
 
+    void on_wbVwMovieInfi_loadProgress(int progress);
+
+    void on_wbVwMovieInfi_loadFinished(bool );
+
 private:
     Ui::MainWindow *ui;
     QStringList *strlstMovieHeaders; //Headers for tblMovies

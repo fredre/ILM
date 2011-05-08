@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
-    <height>530</height>
+    <width>946</width>
+    <height>611</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>940</width>
+     <width>946</width>
      <height>25</height>
     </rect>
    </property>
@@ -73,6 +73,22 @@
         <url>
          <string>qrc:/new/web/Web/start.html</string>
         </url>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="pbLoading">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="textVisible">
+        <bool>true</bool>
+       </property>
+       <property name="format">
+        <string>Loading %p%</string>
        </property>
       </widget>
      </item>
