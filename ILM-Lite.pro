@@ -25,11 +25,6 @@ OTHER_FILES += \
     ScreenShots/screen1.png \
     README.markdown \
 <<<<<<< HEAD
-    Web/loading.html \
-    Web/start.html \
-    TODO
-=======
-    TODO \
-    COMMIT \
-    Web/start.html
->>>>>>> loadingfinished
+
+
+
