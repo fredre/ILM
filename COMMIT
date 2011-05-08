@@ -1,5 +1,1 @@
-Added a TODO file for small GUI changes
-Added the COMMIT file so I can update commit log as I go along
-Added loading.html file so the user can see something as page loads
-Added start.html that will be displayed when the user has not loaded any movies
 When a movie is clicked search results from www.themoviedb.org will be shown. API calls should still be implemented

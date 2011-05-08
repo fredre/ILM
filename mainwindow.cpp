@@ -96,6 +96,19 @@ void MainWindow::on_actionRefresh_triggered()
 void MainWindow::on_tblMovies_cellClicked(int row, int column)
 {
     qDebug()<<row<<column;
+
+    //Get only the movie name
+    QString name = ui->tblMovies->item(row,0)->text();
+
+    //Remove the ext
+    name = name.remove(name.count()-4,4);
+
+     qDebug()<<name;
+
+
+    //Set the search URL
+    ui->wbVwMovieInfi->setUrl(QUrl("http://www.themoviedb.org/search?search="+name));
+
 }
 
 void MainWindow::on_actionMovie_Information_triggered()
@@ -103,4 +116,9 @@ void MainWindow::on_actionMovie_Information_triggered()
   //If the user closed ui->dckWdgtMovieInfo show it again
   ui->dckWdgtMovieInfo->showNormal();
 
+}
+
+void MainWindow::on_wbVwMovieInfi_loadStarted()
+{
+  //Show the loading page while something is loading
 }

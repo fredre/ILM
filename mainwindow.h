@@ -47,6 +47,8 @@ private slots:
 
     void on_actionMovie_Information_triggered();
 
+    void on_wbVwMovieInfi_loadStarted();
+
 private:
     Ui::MainWindow *ui;
     QStringList *strlstMovieHeaders; //Headers for tblMovies
