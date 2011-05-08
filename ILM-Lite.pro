@@ -23,4 +23,8 @@ RESOURCES += \
 
 OTHER_FILES += \
     ScreenShots/screen1.png \
-    README.markdown
+    README.markdown \
+    Web/loading.html \
+    TODO \
+    COMMIT \
+    Web/start.html

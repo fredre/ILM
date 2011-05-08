@@ -23,17 +23,25 @@ News
 
 > Project is now on github
 
-Usability 
--------------
+Planned for version 1.0 
+-----------------------
 
-Not much at the moment :( but I am working on it. Below is some GUI mock-ups of what I want in version 1.0
+Below is some GUI mock-ups of what I want in version 1.0
 
 ![You should see A mockup here](https://github.com/fredre/ILM/raw/master/ScreenShots/screen1.png "Planned for version 1")
 
 
 Here is the full list of features planned for version 1.0 and what I have done so far
 
-<features here>
+* Allow user to select folder containing movies. 
+* Scan movie for folders and show in tree
+* When movie is selected search TMDb and show possible matches
+* Allow user to select movie from list to see more info
+* Provide button that goes back to search results for the movie
+* Save the movie in file alongside the movie file for off-line access
+* Implement play button
+
+
 
 Can I help 
 -----------
