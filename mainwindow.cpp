@@ -21,6 +21,10 @@ This file is part of ILM.
 #include "qglobal.h"
 #include "QFileDialog"
 
+#include <QtNetwork>
+
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -106,7 +110,12 @@ void MainWindow::on_tblMovies_cellClicked(int row, int column)
     //Remove the ext
     name = name.remove(name.count()-4,4);
 
-     qDebug()<<name;
+    //Set the cache
+    QNetworkDiskCache *diskCache = new QNetworkDiskCache(this);
+    //Cache directory should be the current movie directory
+    diskCache->setCacheDirectory(settings->value("MovieDir").toString());
+    ui->wbVwMovieInfi->page()->networkAccessManager()->setCache(diskCache);
+
 
 
     //Set the search URL

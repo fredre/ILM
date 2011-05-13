@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += webkit
+QT       += network
 
 TARGET = ILM-Lite
 TEMPLATE = app
