@@ -56,9 +56,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Hide the loading progress bar
     ui->pbLoading->hide();
-
-
-
 }
 
 MainWindow::~MainWindow()
@@ -146,3 +143,6 @@ void MainWindow::on_wbVwMovieInfi_loadFinished(bool )
 {
   ui->pbLoading->hide();
 }
+
+
+

@@ -13,9 +13,21 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    tmdb.cpp \
+    tmdb_misc.cpp \
+    tmdb_auth.cpp \
+    tmdb_media.cpp \
+    tmdb_movies.cpp \
+    tmdb_people.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    tmdb.h \
+    tmdb_misc.h \
+    tmdb_auth.h \
+    tmdb_media.h \
+    tmdb_movies.h \
+    tmdb_people.h
 
 FORMS    += mainwindow.ui
 
@@ -26,6 +38,3 @@ OTHER_FILES += \
     ScreenShots/screen1.png \
     README.markdown \
 <<<<<<< HEAD
-
-
-
