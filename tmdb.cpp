@@ -31,7 +31,7 @@ TMDB::TMDB(QString apiKey)
     tmdbFetchUrl.setHost("api.themoviedb.org");
 
     //Adds the api version (Currently 2.1)
-    tmdbFetchUrl.resolved("/2.1");
+    tmdbFetchUrl.resolved(QString("/2.1"));
 
 
 }

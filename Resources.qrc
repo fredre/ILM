@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/new/web">
-        <file>Web/loading.html</file>
         <file>Web/start.html</file>
     </qresource>
 </RCC>
