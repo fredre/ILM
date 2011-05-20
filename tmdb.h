@@ -21,9 +21,8 @@ This file is part of ILM.
 #include <QString>
 #include <QUrl>
 
-class TMDB :public QObject
+class TMDB
 {
-    Q_OBJECT
 
 public:
     TMDB(QString);
