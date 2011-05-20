@@ -14,20 +14,20 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    tmdb.cpp \
-    tmdb_misc.cpp \
-    tmdb_auth.cpp \
-    tmdb_media.cpp \
-    tmdb_movies.cpp \
-    tmdb_people.cpp
+    ./TMDB/tmdb.cpp \
+    ./TMDB/tmdb_misc.cpp \
+    ./TMDB/tmdb_auth.cpp \
+    ./TMDB/tmdb_media.cpp \
+    ./TMDB/tmdb_movies.cpp \
+    ./TMDB/tmdb_people.cpp
 
 HEADERS  += mainwindow.h \
-    tmdb.h \
-    tmdb_misc.h \
-    tmdb_auth.h \
-    tmdb_media.h \
-    tmdb_movies.h \
-    tmdb_people.h
+    ./TMDB/tmdb.h \
+    ./TMDB/tmdb_misc.h \
+    ./TMDB/tmdb_auth.h \
+    ./TMDB/tmdb_media.h \
+    ./TMDB/tmdb_movies.h \
+    ./TMDB/tmdb_people.h
 
 FORMS    += mainwindow.ui
 
