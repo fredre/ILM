@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core
+QT       += testlib
 
 QT       -= gui
 
@@ -16,3 +17,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp
+SOURCES += ../../tmdb.h
+SOURCES += ../../tmdb.cpp
+

@@ -23,4 +23,15 @@ TMDB::TMDB(QString apiKey)
 {
     //Set the API Key
     APIKEY = apiKey;
+
+    //Set the Sceme of the tmbdFetchUrl to be http
+    tmdbFetchUrl.setScheme("http");
+
+    //Set the host
+    tmdbFetchUrl.setHost("api.themoviedb.org");
+
+    //Adds the api version (Currently 2.1)
+    tmdbFetchUrl.resolved("/2.1");
+
+
 }
