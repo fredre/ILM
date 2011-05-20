@@ -17,6 +17,7 @@ This file is part of ILM.
 #include "tmdb.h"
 #include "tmdb_people.h"
 
-TMDB_People::TMDB_People()
+TMDB_People::TMDB_People(QString apiKey)
+    :TMDB(apiKey)
 {
 }

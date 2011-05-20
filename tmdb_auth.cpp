@@ -17,6 +17,7 @@ This file is part of ILM.
 #include "tmdb.h"
 #include "tmdb_auth.h"
 
-TMDB_Auth::TMDB_Auth()
+TMDB_Auth::TMDB_Auth(QString apiKey)
+    :TMDB(apiKey)
 {
 }

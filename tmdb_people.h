@@ -21,7 +21,7 @@ This file is part of ILM.
 class TMDB_People : public TMDB
 {
 public:
-    TMDB_People();
+    TMDB_People(QString);
 };
 
 #endif // TMDB_PEOPLE_H

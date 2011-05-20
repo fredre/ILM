@@ -21,7 +21,7 @@ This file is part of ILM.
 class TMDB_Auth : public TMDB
 {
 public:
-    TMDB_Auth();
+    TMDB_Auth(QString);
 };
 
 #endif // TMDB_AUTH_H

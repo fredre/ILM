@@ -18,6 +18,7 @@ This file is part of ILM.
 #include "tmdb.h"
 #include "tmdb_media.h"
 
-TMDB_Media::TMDB_Media()
+TMDB_Media::TMDB_Media(QString apiKey)
+    :TMDB(apiKey)
 {
 }

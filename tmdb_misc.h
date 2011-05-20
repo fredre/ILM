@@ -21,7 +21,7 @@ This file is part of ILM.
 class TMDB_Misc : public TMDB
 {
 public:
-    TMDB_Misc();
+    TMDB_Misc(QString);
 
 };
 

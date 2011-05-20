@@ -15,23 +15,11 @@ This file is part of ILM.
     along with ILM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef TMDB_H
-#define TMDB_H
+#include <QtCore/QCoreApplication>
 
-#include <QString>
-#include <QUrl>
-
-class TMDB
+int main(int argc, char *argv[])
 {
-public:
-    TMDB(QString);
+    QCoreApplication a(argc, argv);
 
-protected:
-    QString APIKEY;
-
-private:
-    QUrl tmdbFetchUrl;
-
-};
-
-#endif // TMDB_H
+    return a.exec();
+}

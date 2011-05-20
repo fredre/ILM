@@ -18,7 +18,8 @@ This file is part of ILM.
 #include "tmdb_misc.h"
 
 
-TMDB_Misc::TMDB_Misc()
+TMDB_Misc::TMDB_Misc(QString apiKey)
+    :TMDB(apiKey)
 {
 
 }

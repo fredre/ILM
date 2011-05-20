@@ -17,6 +17,10 @@ This file is part of ILM.
 
 #include "tmdb.h"
 
-TMDB::TMDB()
+
+
+TMDB::TMDB(QString apiKey)
 {
+    //Set the API Key
+    APIKEY = apiKey;
 }

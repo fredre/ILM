@@ -21,7 +21,7 @@ This file is part of ILM.
 class TMDB_Movies : public TMDB
 {
 public:
-    TMDB_Movies();
+    TMDB_Movies(QString);
 };
 
 #endif // TMDB_MOVIES_H
