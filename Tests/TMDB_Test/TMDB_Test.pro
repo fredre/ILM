@@ -16,4 +16,12 @@ TEMPLATE = app
 
 
 SOURCES += tst_tmdb_testtest.cpp
+
+SOURCES += ./../../TMDB/*.cpp
+
+HEADERS  += ./../../TMDB/*.h
+
+
+
+
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
