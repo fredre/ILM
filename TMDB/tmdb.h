@@ -20,19 +20,33 @@ This file is part of ILM.
 
 #include <QString>
 #include <QUrl>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
 
 class TMDB
 {
 
 public:
     TMDB(QString);
-     QString getRootUrl();
+    QString getRootUrl();
+    void ammendQueryMethod(QString);
 
 protected:
     QString APIKEY;
 
 private:
     QUrl tmdbFetchUrl;
+    QString language;
+    QString returnFormat;
+
+    QNetworkAccessManager* namFetcher;
+
+    void ammendLanguage();
+    void ammendFormat();
+    void ammendApi();
+
+
 
 
 };

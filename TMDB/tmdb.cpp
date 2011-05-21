@@ -17,10 +17,14 @@ This file is part of ILM.
 
 #include "tmdb.h"
 
-
-
 TMDB::TMDB(QString apiKey)
 {
+    //Set the language to be used (Currently en only)
+    language = "en";
+
+    //The format in what the q will be returned (Currently XML only)
+    returnFormat = "xml";
+
     //Set the API Key
     APIKEY = apiKey;
 
@@ -33,11 +37,41 @@ TMDB::TMDB(QString apiKey)
     //Adds the api version (Currently 2.1)
     tmdbFetchUrl.setPath("/2.1/");
 
+
 }
 
  QString TMDB::getRootUrl()
  {
      //This function is only used for testing purposes.
-     //It returns the tmdbFetchUrl. In the test this is called after a new object was created (TestRootUrl())
+     //It returns the tmdbFetchUrl.
      return tmdbFetchUrl.toString();
+ }
+
+ void TMDB::ammendQueryMethod(QString Method)
+{
+ //This function will ammend the actual Queryname to the url that will be fetched
+ QUrl ammend(Method);
+
+ tmdbFetchUrl = tmdbFetchUrl.resolved(Method);
+ ammendLanguage();
+ ammendFormat();
+ ammendApi();
+
+}
+
+ void TMDB::ammendLanguage()
+ {
+    //This method will ammend the language to tmdbFetchUrl. It is used internally
+     tmdbFetchUrl = tmdbFetchUrl.resolved(tmdbFetchUrl.toString()+QUrl("/"+language).toString());
+ }
+
+ void TMDB::ammendFormat()
+ {
+  //This method will ammend the language to tmdbFetchUrl it is used internally
+  tmdbFetchUrl = tmdbFetchUrl.resolved(tmdbFetchUrl.toString()+QUrl("/"+returnFormat).toString());
+ }
+
+ void TMDB::ammendApi()
+ {
+    tmdbFetchUrl = tmdbFetchUrl.resolved(tmdbFetchUrl.toString()+QUrl("/"+APIKEY).toString());
  }

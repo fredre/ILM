@@ -28,6 +28,7 @@ public:
 
 private Q_SLOTS:
     void TestRootUrl();
+    void ammendQueryMethod();
 };
 
 TMDB_TestTest::TMDB_TestTest()
@@ -48,7 +49,17 @@ void TMDB_TestTest::TestRootUrl()
    QCOMPARE(qPrintable(info->getRootUrl()),"http://api.themoviedb.org/2.1/");
 
    delete info;
+   info =0;
+}
 
+void TMDB_TestTest::ammendQueryMethod()
+{
+  qDebug("Testing a quiry method ammend");
+  TMDB myinfo("APIKEY");
+
+  myinfo.ammendQueryMethod("Genres.getList");
+
+  QCOMPARE(qPrintable(myinfo.getRootUrl()),"http://api.themoviedb.org/2.1/Genres.getList/en/xml/APIKEY");
 
 }
 
