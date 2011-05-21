@@ -26,12 +26,14 @@ class TMDB
 
 public:
     TMDB(QString);
+     QString getRootUrl();
 
 protected:
     QString APIKEY;
 
 private:
     QUrl tmdbFetchUrl;
+
 
 };
 

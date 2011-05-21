@@ -17,7 +17,7 @@ This file is part of ILM.
 
 #include <QtCore/QString>
 #include <QtTest/QtTest>
-
+#include <tmdb.h>
 
 class TMDB_TestTest : public QObject
 {
@@ -38,6 +38,16 @@ void TMDB_TestTest::TestRootUrl()
 {
     qDebug("Testing the root url with non pointer object");
 
+    TMDB myinfo("Some api string");
+
+    QCOMPARE(qPrintable(myinfo.getRootUrl()),"http://api.themoviedb.org/2.1/");
+
+   qDebug("Testing the root url with  pointer object");
+   TMDB *info = new TMDB("Some api string");
+
+   QCOMPARE(qPrintable(info->getRootUrl()),"http://api.themoviedb.org/2.1/");
+
+   delete info;
 
 
 }

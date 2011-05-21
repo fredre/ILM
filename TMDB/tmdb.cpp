@@ -31,7 +31,13 @@ TMDB::TMDB(QString apiKey)
     tmdbFetchUrl.setHost("api.themoviedb.org");
 
     //Adds the api version (Currently 2.1)
-    tmdbFetchUrl.resolved(QString("/2.1"));
-
+    tmdbFetchUrl.setPath("/2.1/");
 
 }
+
+ QString TMDB::getRootUrl()
+ {
+     //This function is only used for testing purposes.
+     //It returns the tmdbFetchUrl. In the test this is called after a new object was created (TestRootUrl())
+     return tmdbFetchUrl.toString();
+ }
