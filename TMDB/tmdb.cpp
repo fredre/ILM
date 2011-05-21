@@ -37,6 +37,37 @@ TMDB::TMDB(QString apiKey)
     //Adds the api version (Currently 2.1)
     tmdbFetchUrl.setPath("/2.1/");
 
+    //Init the network access manager
+    namFetcher = new QNetworkAccessManager();
+    QObject::connect(namFetcher, SIGNAL(finished(QNetworkReply*)),this, SLOT(finishedSlot(QNetworkReply*)));
+}
+
+
+void TMDB::finishedSlot(QNetworkReply * reply)
+{
+//This will happen if the nam is finshed
+    if (reply->error() == QNetworkReply::NoError)
+       {
+           QByteArray bytes = reply->readAll();  // bytes
+           QString string(bytes); // string
+
+       }
+       // Some http error received
+       else
+       {
+           qDebug("AAAAAAH");
+       }
+
+       // We receive ownership of the reply object
+       // and therefore need to handle deletion.
+       delete reply;
+       reply=0;
+}
+
+QByteArray TMDB::exeQuery()
+{
+    QUrl url("http://www.google.com");
+    QNetworkReply* reply = namFetcher->get(QNetworkRequest(url));
 
 }
 

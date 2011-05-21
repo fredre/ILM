@@ -18,19 +18,22 @@ This file is part of ILM.
 #ifndef TMDB_H
 #define TMDB_H
 
+#include <QCoreApplication>
 #include <QString>
 #include <QUrl>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
 
-class TMDB
+class TMDB:public QObject
 {
 
+    Q_OBJECT
 public:
     TMDB(QString);
     QString getRootUrl();
     void ammendQueryMethod(QString);
+    QByteArray exeQuery();
 
 protected:
     QString APIKEY;
@@ -45,6 +48,9 @@ private:
     void ammendLanguage();
     void ammendFormat();
     void ammendApi();
+
+public Q_SLOTS:
+    void finishedSlot(QNetworkReply*);
 
 
 
