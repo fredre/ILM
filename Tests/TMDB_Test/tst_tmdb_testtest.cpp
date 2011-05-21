@@ -18,6 +18,7 @@ This file is part of ILM.
 #include <QtCore/QString>
 #include <QtTest/QtTest>
 
+
 class TMDB_TestTest : public QObject
 {
     Q_OBJECT
@@ -26,16 +27,19 @@ public:
     TMDB_TestTest();
 
 private Q_SLOTS:
-    void testCase1();
+    void TestRootUrl();
 };
 
 TMDB_TestTest::TMDB_TestTest()
 {
 }
 
-void TMDB_TestTest::testCase1()
+void TMDB_TestTest::TestRootUrl()
 {
-    QVERIFY2(true, "Failure");
+    qDebug("Testing the root url with non pointer object");
+
+
+
 }
 
 QTEST_APPLESS_MAIN(TMDB_TestTest);

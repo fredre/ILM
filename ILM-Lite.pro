@@ -11,6 +11,8 @@ QT       += network
 TARGET = ILM-Lite
 TEMPLATE = app
 
+INCLUDEPATH += ./../../TMDB/
+
 
 SOURCES += main.cpp\
         mainwindow.cpp \

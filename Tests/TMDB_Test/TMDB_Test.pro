@@ -21,6 +21,9 @@ SOURCES += ./../../TMDB/*.cpp
 
 HEADERS  += ./../../TMDB/*.h
 
+INCLUDEPATH += ./../../TMDB/
+
+
 
 
 
