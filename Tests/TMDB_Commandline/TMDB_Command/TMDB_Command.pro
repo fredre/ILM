@@ -8,6 +8,8 @@ QT       += core
 
 QT       -= gui
 
+QT       += network
+
 TARGET = TMDB_Command
 CONFIG   += console
 CONFIG   -= app_bundle
@@ -17,8 +19,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp
 
-SOURCES += ./../../TMDB/*.cpp
+SOURCES += ./../../../TMDB/*.cpp
 
-HEADERS  += ./../../TMDB/*.h
+HEADERS  += ./../../../TMDB/*.h
 
-INCLUDEPATH += ./../../TMDB/
+INCLUDEPATH += ./../../../TMDB/

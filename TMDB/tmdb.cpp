@@ -16,6 +16,7 @@ This file is part of ILM.
 */
 
 #include "tmdb.h"
+#include "qdebug.h"
 
 TMDB::TMDB(QString apiKey)
 {
@@ -49,20 +50,21 @@ TMDB::TMDB(QString apiKey)
 void TMDB::finishedSlot(QNetworkReply * reply)
 {
 //This will happen if the nam is finshed
-    //if (reply->error() == QNetworkReply::NoError)
-      // {
-          // QByteArray bytes = reply->readAll();  // bytes
-          // QString string(bytes); // string
+    if (reply->error() == QNetworkReply::NoError)
+       {
+           QByteArray bytes = reply->readAll();  // bytes
+           QString string(bytes); // string
+           qDebug()<<string;
            //Emit signal
-           QString Test = "Yahoo";
+           QString Test = string;
            emit dataReady(Test);
 
-      // }
-       // Some http error received
-      // else
-      // {
-      //     qDebug("AAAAAAH");
-      // }
+       }
+        //Some http error received
+       else
+       {
+          qDebug("AAAAAAH");
+      }
 
 
 
@@ -75,7 +77,7 @@ void TMDB::finishedSlot(QNetworkReply * reply)
 
 QByteArray TMDB::exeQuery()
 {
-
+qDebug()<<"Running q";
     namFetcher->get(QNetworkRequest(QUrl("http://stackoverflow.com")));
 
 
