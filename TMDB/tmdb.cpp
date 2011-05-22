@@ -38,36 +38,46 @@ TMDB::TMDB(QString apiKey)
     tmdbFetchUrl.setPath("/2.1/");
 
     //Init the network access manager
-    namFetcher = new QNetworkAccessManager();
+    namFetcher = new QNetworkAccessManager(this);
     QObject::connect(namFetcher, SIGNAL(finished(QNetworkReply*)),this, SLOT(finishedSlot(QNetworkReply*)));
+
+
+
 }
 
 
 void TMDB::finishedSlot(QNetworkReply * reply)
 {
 //This will happen if the nam is finshed
-    if (reply->error() == QNetworkReply::NoError)
-       {
-           QByteArray bytes = reply->readAll();  // bytes
-           QString string(bytes); // string
+    //if (reply->error() == QNetworkReply::NoError)
+      // {
+          // QByteArray bytes = reply->readAll();  // bytes
+          // QString string(bytes); // string
+           //Emit signal
+           QString Test = "Yahoo";
+           emit dataReady(Test);
 
-       }
+      // }
        // Some http error received
-       else
-       {
-           qDebug("AAAAAAH");
-       }
+      // else
+      // {
+      //     qDebug("AAAAAAH");
+      // }
+
+
+
 
        // We receive ownership of the reply object
        // and therefore need to handle deletion.
-       delete reply;
-       reply=0;
+       //delete reply;
+       //reply=0;
 }
 
 QByteArray TMDB::exeQuery()
 {
-    QUrl url("http://www.google.com");
-    QNetworkReply* reply = namFetcher->get(QNetworkRequest(url));
+
+    namFetcher->get(QNetworkRequest(QUrl("http://stackoverflow.com")));
+
 
 }
 
@@ -87,6 +97,7 @@ QByteArray TMDB::exeQuery()
  ammendLanguage();
  ammendFormat();
  ammendApi();
+
 
 }
 

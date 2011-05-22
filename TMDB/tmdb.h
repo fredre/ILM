@@ -35,6 +35,10 @@ public:
     void ammendQueryMethod(QString);
     QByteArray exeQuery();
 
+
+signals:
+    void dataReady(QString test);
+
 protected:
     QString APIKEY;
 
@@ -49,8 +53,9 @@ private:
     void ammendFormat();
     void ammendApi();
 
+
 public Q_SLOTS:
-    void finishedSlot(QNetworkReply*);
+    void finishedSlot(QNetworkReply*); //Used by networkmanager to notify internally about data gathered
 
 
 

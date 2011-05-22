@@ -1,31 +1,24 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2011-05-20T19:18:45
+# Project created by QtCreator 2011-05-22T15:06:39
 #
 #-------------------------------------------------
 
-QT       += testlib
-QT       += network
+QT       += core
 
 QT       -= gui
 
-TARGET = tst_tmdb_testtest
+TARGET = TMDB_Command
 CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
 
 
-SOURCES += tst_tmdb_testtest.cpp
+SOURCES += main.cpp
 
 SOURCES += ./../../TMDB/*.cpp
 
 HEADERS  += ./../../TMDB/*.h
 
 INCLUDEPATH += ./../../TMDB/
-
-
-
-
-
-DEFINES += SRCDIR=\\\"$$PWD/\\\"

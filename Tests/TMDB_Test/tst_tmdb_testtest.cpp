@@ -27,51 +27,64 @@ public:
     TMDB_TestTest();
 
 private Q_SLOTS:
-    void TestRootUrl();
-    void ammendQueryMethod();
+//    void TestRootUrl();
+//    void ammendQueryMethod();
     void TestNetworkfetch();
+
+
 };
 
 TMDB_TestTest::TMDB_TestTest()
 {
 }
 
-void TMDB_TestTest::TestRootUrl()
-{
-    qDebug("Testing the root url with non pointer object");
+//void TMDB_TestTest::TestRootUrl()
+//{
+//    qDebug("Testing the root url with non pointer object");
 
-    TMDB myinfo("Some api string");
+//    TMDB myinfo("Some api string");
 
-    QCOMPARE(qPrintable(myinfo.getRootUrl()),"http://api.themoviedb.org/2.1/");
+//    QCOMPARE(qPrintable(myinfo.getRootUrl()),"http://api.themoviedb.org/2.1/");
 
-   qDebug("Testing the root url with  pointer object");
-   TMDB *info = new TMDB("Some api string");
+//   qDebug("Testing the root url with  pointer object");
+//   TMDB *info = new TMDB("Some api string");
 
-   QCOMPARE(qPrintable(info->getRootUrl()),"http://api.themoviedb.org/2.1/");
+//   QCOMPARE(qPrintable(info->getRootUrl()),"http://api.themoviedb.org/2.1/");
 
-   delete info;
-   info =0;
-}
+//   delete info;
+//   info =0;
+//}
 
-void TMDB_TestTest::ammendQueryMethod()
-{
-  qDebug("Testing a quiry method ammend");
-  TMDB myinfo("APIKEY");
+//void TMDB_TestTest::ammendQueryMethod()
+//{
+//  qDebug("Testing a quiry method ammend");
+//  TMDB *myinfo = new TMDB("APIKEY");
 
-  myinfo.ammendQueryMethod("Genres.getList");
+//  myinfo->ammendQueryMethod("Genres.getList");
 
-  QCOMPARE(qPrintable(myinfo.getRootUrl()),"http://api.themoviedb.org/2.1/Genres.getList/en/xml/APIKEY");
+//  QCOMPARE(qPrintable(myinfo->getRootUrl()),"http://api.themoviedb.org/2.1/Genres.getList/en/xml/APIKEY");
 
-}
+//}
 
 void TMDB_TestTest::TestNetworkfetch()
 {
-    TMDB myinfo("APIKEY");
+    TMDB *myinfo = new TMDB("APIKEY");
 
-    myinfo.ammendQueryMethod("Genres.getList");
+    myinfo->ammendQueryMethod("Genres.getList");
 
-    myinfo.exeQuery();
+    //QSignalSpy spy(myinfo, SIGNAL(dataReady(QString)));
+
+    myinfo->exeQuery();
+
+    //qDebug()<<spy.count();
+
+    //QList<QVariant> arguments = spy.takeFirst();
+
+    //qDebug()<<arguments.at(0).toString();
+
 }
+
+
 
 QTEST_APPLESS_MAIN(TMDB_TestTest);
 
