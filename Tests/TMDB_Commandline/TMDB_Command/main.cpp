@@ -33,6 +33,7 @@ public slots:
     {
         // Do processing here
 
+
         emit finished();
     }
 

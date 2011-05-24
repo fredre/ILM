@@ -53,33 +53,25 @@ void TMDB::finishedSlot(QNetworkReply * reply)
     if (reply->error() == QNetworkReply::NoError)
        {
            QByteArray bytes = reply->readAll();  // bytes
-           QString string(bytes); // string
-           qDebug()<<string;
-           //Emit signal
-           QString Test = string;
-           emit dataReady(Test);
+
+           emit dataReady(bytes);
 
        }
-        //Some http error received
+        //Some http error received. TODO add some propr eroro handling here
        else
        {
           qDebug("AAAAAAH");
       }
 
-
-
-
        // We receive ownership of the reply object
        // and therefore need to handle deletion.
-       //delete reply;
-       //reply=0;
+       delete reply;
+
 }
 
 QByteArray TMDB::exeQuery()
 {
-qDebug()<<"Running q";
-    namFetcher->get(QNetworkRequest(QUrl("http://stackoverflow.com")));
-
+    namFetcher->get(QNetworkRequest(tmdbFetchUrl));
 
 }
 

@@ -37,7 +37,7 @@ public:
 
 
 signals:
-    void dataReady(QString test);
+    void dataReady(QByteArray); //This wil be emiiten when data is ready
 
 protected:
     QString APIKEY;
