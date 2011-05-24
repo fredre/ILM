@@ -17,7 +17,7 @@ This file is part of ILM.
 
 #include <QtCore/QCoreApplication>
 #include <QDebug>
-#include <tmdb.h>
+#include <tmdb_misc.h>
 
 // main.cpp
 #include <QtCore>
@@ -31,10 +31,22 @@ public:
 public slots:
     void run()
     {
-        // Do processing here
+        // Test the Genres.getList method
+        TMDB_Misc *misc = new TMDB_Misc("39ad119048b5408cb0fa038e929a3517");
+
+        QObject::connect(misc, SIGNAL(dataReady(QByteArray)), this, SLOT(showdata(QByteArray)));
+
+        misc->Genres_getList();
 
 
-        emit finished();
+
+    }
+
+    void showdata(QByteArray by)
+    {
+        QString show(by);
+        qDebug()<<by;
+         emit finished();
     }
 
 signals:

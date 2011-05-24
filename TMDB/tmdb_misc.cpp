@@ -23,3 +23,13 @@ TMDB_Misc::TMDB_Misc(QString apiKey)
 {
 
 }
+
+void TMDB_Misc::Genres_getList()
+{
+    /*
+    The Genres.getList method is used to retrieve a list of valid genres within TMDb.
+    You can also request the translated values by passing the language option.
+    */
+    ammendQueryMethod("Genres.getList");
+    exeQuery();
+}

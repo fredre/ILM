@@ -18,10 +18,16 @@ This file is part of ILM.
 #ifndef TMDB_MISC_H
 #define TMDB_MISC_H
 
+#include "tmdb.h"
+
 class TMDB_Misc : public TMDB
 {
 public:
     TMDB_Misc(QString);
+
+    void Genres_getList();
+
+
 
 };
 

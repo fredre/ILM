@@ -69,7 +69,7 @@ void TMDB::finishedSlot(QNetworkReply * reply)
 
 }
 
-QByteArray TMDB::exeQuery()
+void TMDB::exeQuery()
 {
     namFetcher->get(QNetworkRequest(tmdbFetchUrl));
 

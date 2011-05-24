@@ -33,11 +33,11 @@ public:
     TMDB(QString);
     QString getRootUrl();
     void ammendQueryMethod(QString);
-    QByteArray exeQuery();
+    void exeQuery();
 
 
 signals:
-    void dataReady(QByteArray); //This wil be emiiten when data is ready
+    void dataReady(QByteArray); //This wil be emitten when data is ready
 
 protected:
     QString APIKEY;
