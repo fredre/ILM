@@ -60,12 +60,13 @@ void TMDB::finishedSlot(QNetworkReply * reply)
         //Some http error received. TODO add some propr eroro handling here
        else
        {
-          qDebug("AAAAAAH");
-      }
+          //Emit an error with the coresponding code (QNetworkReply::NetworkError)
+          emit dataError(reply->error());
 
-       // We receive ownership of the reply object
-       // and therefore need to handle deletion.
-       delete reply;
+       }
+
+
+       reply->deleteLater();
 
 }
 

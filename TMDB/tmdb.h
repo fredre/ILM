@@ -38,6 +38,7 @@ public:
 
 signals:
     void dataReady(QByteArray); //This wil be emitten when data is ready
+    void dataError(qint32); //This wil be emitten when data is ready
 
 protected:
     QString APIKEY;

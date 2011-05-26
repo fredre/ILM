@@ -34,19 +34,23 @@ public slots:
         // Test the Genres.getList method
         TMDB_Misc *misc = new TMDB_Misc("39ad119048b5408cb0fa038e929a3517");
 
-        QObject::connect(misc, SIGNAL(dataReady(QByteArray)), this, SLOT(showdata(QByteArray)));
+        QObject::connect(misc, SIGNAL(dataReady(QByteArray)), this, SLOT(showData(QByteArray)));
+        QObject::connect(misc, SIGNAL(dataError(qint32)), this, SLOT(dataError(qint32)));
 
         misc->Genres_getList();
 
-
-
     }
 
-    void showdata(QByteArray by)
+    void showData(QByteArray by)
     {
         QString show(by);
-        qDebug()<<by;
-         emit finished();
+        qDebug()<<show;
+        emit finished();
+    }
+
+    void dataError(qint32 ercode)
+    {
+        qDebug()<<"OOPS ERROR: "<<ercode;
     }
 
 signals:
