@@ -17,6 +17,7 @@ This file is part of ILM.
 
 #include <QtCore/QCoreApplication>
 #include <QDebug>
+#include <tmdb.h>
 #include <tmdb_misc.h>
 
 // main.cpp
@@ -32,12 +33,18 @@ public slots:
     void run()
     {
         // Test the Genres.getList method
-        TMDB_Misc *misc = new TMDB_Misc("39ad119048b5408cb0fa038e929a3517");
+        //TMDB_Misc *misc = new TMDB_Misc("39ad119048b5408cb0fa038e929a3517");
 
-        QObject::connect(misc, SIGNAL(dataReady(QByteArray)), this, SLOT(showData(QByteArray)));
-        QObject::connect(misc, SIGNAL(dataError(qint32)), this, SLOT(dataError(qint32)));
+        //QObject::connect(misc, SIGNAL(dataReady(QByteArray)), this, SLOT(showData(QByteArray)));
+        //QObject::connect(misc, SIGNAL(dataError(qint32)), this, SLOT(dataError(qint32)));
 
-        misc->Genres_getList();
+        TMDB *tm = new TMDB_Misc("39ad119048b5408cb0fa038e929a3517");
+
+        QObject::connect(tm, SIGNAL(dataReady(QByteArray)), this, SLOT(showData(QByteArray)));
+        QObject::connect(tm, SIGNAL(dataError(qint32)), this, SLOT(dataError(qint32)));
+
+
+        tm->Genres_getList();
 
     }
 

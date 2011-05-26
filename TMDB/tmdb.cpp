@@ -57,7 +57,7 @@ void TMDB::finishedSlot(QNetworkReply * reply)
            emit dataReady(bytes);
 
        }
-        //Some http error received. TODO add some propr eroro handling here
+        //Some http error received. TODO add some propr error handling here
        else
        {
           //Emit an error with the coresponding code (QNetworkReply::NetworkError)

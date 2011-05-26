@@ -35,6 +35,8 @@ public:
     void ammendQueryMethod(QString);
     void exeQuery();
 
+     virtual void Genres_getList(){};
+
 
 signals:
     void dataReady(QByteArray); //This wil be emitten when data is ready
