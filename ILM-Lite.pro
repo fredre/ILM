@@ -7,6 +7,7 @@
 QT       += core gui
 QT       += webkit
 QT       += network
+QT       += sql
 
 TARGET = ILM-Lite
 TEMPLATE = app
@@ -21,7 +22,8 @@ SOURCES += main.cpp\
     ./TMDB/tmdb_auth.cpp \
     ./TMDB/tmdb_media.cpp \
     ./TMDB/tmdb_movies.cpp \
-    ./TMDB/tmdb_people.cpp
+    ./TMDB/tmdb_people.cpp \
+    dataprovider.cpp
 
 HEADERS  += mainwindow.h \
     ./TMDB/tmdb.h \
@@ -29,7 +31,8 @@ HEADERS  += mainwindow.h \
     ./TMDB/tmdb_auth.h \
     ./TMDB/tmdb_media.h \
     ./TMDB/tmdb_movies.h \
-    ./TMDB/tmdb_people.h
+    ./TMDB/tmdb_people.h \
+    dataprovider.h
 
 FORMS    += mainwindow.ui
 

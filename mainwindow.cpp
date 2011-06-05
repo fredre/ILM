@@ -1,4 +1,4 @@
-/*
+ /*
 This file is part of ILM.
 
     ILM is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@ This file is part of ILM.
 #include "QFileDialog"
 
 #include <QtNetwork>
-
+#include <dataprovider.h>
 
 
 
@@ -56,6 +56,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Hide the loading progress bar
     ui->pbLoading->hide();
+
+    //Setup the database
+    DataProvider *myData = new DataProvider();
+
+
+
 }
 
 MainWindow::~MainWindow()
