@@ -34,10 +34,10 @@ HEADERS  += mainwindow.h \
     ./TMDB/tmdb_people.h \
     dataprovider.h
 
-CONFIG(release, debug|release):
-QMAKE_CFLAGS+=-pg
-QMAKE_CXXFLAGS+=-pg
-QMAKE_LFLAGS+=-pg
+ CONFIG(release, debug|release):
+ QMAKE_CFLAGS+=-pg
+ QMAKE_CXXFLAGS+=-pg
+ QMAKE_LFLAGS+=-pg
 
 FORMS    += mainwindow.ui
 
