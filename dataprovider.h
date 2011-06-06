@@ -30,6 +30,7 @@ class DataProvider : public QObject
     Q_OBJECT
 public:
     explicit DataProvider(QObject *parent = 0);
+    QSqlTableModel *getModel();
 
 signals:
 

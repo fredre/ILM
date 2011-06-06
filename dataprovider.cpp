@@ -35,11 +35,15 @@ DataProvider::DataProvider(QObject *parent) :
   qDebug() <<db.open();
   #endif
 
+  //Create the movie table
+ CreateMovieTable();
+
+
   dbmodel = new QSqlTableModel(this,db);
   dbmodel->setTable("MovieInfo");
-  //dbmodel->select();
+  dbmodel->select();
 
-  //qDebug() << dbmodel->lastError();
+  qDebug() << dbmodel->lastError();
 }
 
 bool DataProvider::CreateMovieTable()
@@ -49,13 +53,16 @@ bool DataProvider::CreateMovieTable()
    if (db.isOpen())
        {
        QSqlQuery query;
-       ret = query.exec("create table person "
-                 "(id integer primary key, "
-                 "firstname varchar(20), "
-                 "lastname varchar(30), "
-                 "age integer)");
-
+       ret = query.exec("CREATE TABLE MovieInfo("
+                            "Name  TEXT,"
+                            "Path NUMERIC"
+                            ");"
+                        );
        }
    return ret;
    }
 
+QSqlTableModel *DataProvider::getModel()
+{
+    return dbmodel;
+}

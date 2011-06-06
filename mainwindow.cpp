@@ -60,7 +60,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //Setup the database
     DataProvider *myData = new DataProvider();
 
-
+    //Get the model for our one and only table and set to tblMoviesSql
+    ui->tblMoviesSql->setModel(myData->getModel());
 
 }
 
