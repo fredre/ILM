@@ -23,6 +23,7 @@ This file is part of ILM.
 #include <qdir.h>
 #include <QtDebug>
 #include <qsettings.h>
+#include <dataprovider.h>
 
 
 
@@ -58,9 +59,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QStringList *strlstMovieHeaders; //Headers for tblMovies
+    //QStringList *strlstMovieHeaders; //Headers for tblMovies
     QStringList *strlstMovieTypes; //The types of movies that should be loaded
     QSettings *settings; //Keeps appilcation settings
+    DataProvider *myData;
 };
 
 #endif // MAINWINDOW_H

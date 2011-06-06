@@ -22,7 +22,7 @@ This file is part of ILM.
 #include "QFileDialog"
 
 #include <QtNetwork>
-#include <dataprovider.h>
+
 
 
 
@@ -37,19 +37,23 @@ MainWindow::MainWindow(QWidget *parent) :
     QIcon refreshIcon = QIcon::fromTheme("view-refresh");
     ui->actionRefresh->setIcon(refreshIcon);
 
+   /*
+    //Old code my bro
     //Setup the QStringList that will keep the tblMovies headers
     strlstMovieHeaders = new QStringList();
     strlstMovieHeaders->append("File Name");
     strlstMovieHeaders->append("Full Path");
-
+   */
     //Setup the QStringList that will keep the types of movies that should be loaded
     strlstMovieTypes = new QStringList();
     strlstMovieTypes->append("*.avi");
 
+    /*
     //Setup tblMovies
     ui->tblMovies->clear();
     ui->tblMovies->setColumnCount(strlstMovieHeaders->count());
     ui->tblMovies->setHorizontalHeaderLabels(*strlstMovieHeaders);
+   */
 
     //Setup the settings class
     settings = new QSettings();
@@ -58,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pbLoading->hide();
 
     //Setup the database
-    DataProvider *myData = new DataProvider();
+    myData = new DataProvider();
 
     //Get the model for our one and only table and set to tblMoviesSql
     ui->tblMoviesSql->setModel(myData->getModel());
@@ -91,6 +95,15 @@ void MainWindow::on_actionRefresh_triggered()
 
   //qDebug()<<*strlstFiles;
 
+  //Add the files to our table using the data provided
+  //First step put myData in Insert mode (This has to do with speed improvements) we want to wrap all in one Transaction
+  myData->startBigTransaction();
+  foreach (const QFileInfo &i, filstFiles) {
+    myData->addVirginMovie(i.fileName(),i.absoluteFilePath());
+  }
+  myData->endBigTransaction();
+
+  /*
   //Add to table (Move to seprate function)
   int row=0;
   ui->tblMovies->setRowCount(filstFiles.count());
@@ -101,6 +114,7 @@ void MainWindow::on_actionRefresh_triggered()
     ui->tblMovies->setItem(row, 1, new QTableWidgetItem(i.absoluteFilePath()));
     row++;
    }
+   */
 
 }
 

@@ -31,12 +31,20 @@ DataProvider::DataProvider(QObject *parent) :
   path = QDir::toNativeSeparators(path);
 
   db.setDatabaseName(path);
+  //db.setDatabaseName(":memory:");
+
+
 
   qDebug() <<db.open();
   #endif
 
+  //We Dont care about cates failure so speed things up and turn waiting for OS off
+  //This can be commented out for a big speed hit but db will be more reliable if power goes
+  db.exec("PRAGMA synchronous = OFF");
+  db.exec("PRAGMA journal_mode = MEMORY");
+
   //Create the movie table
- CreateMovieTable();
+  CreateMovieTable();
 
 
   dbmodel = new QSqlTableModel(this,db);
@@ -64,5 +72,32 @@ bool DataProvider::CreateMovieTable()
 
 QSqlTableModel *DataProvider::getModel()
 {
+    //Returns the model for the Table MovieInfo
     return dbmodel;
 }
+
+void DataProvider::startBigTransaction()
+{
+    db.transaction();
+}
+
+void DataProvider::endBigTransaction()
+{
+    db.commit();
+}
+
+
+void DataProvider::addVirginMovie(QString fName,QString fPath)
+{
+    //Adds a Virgin movie to the Table. A movie is assummed virgin if it has never been added before
+    //We want to add the Filename and the FilePath
+    if (db.isOpen())
+        {
+        QSqlQuery query;
+        query.exec(QString("INSERT INTO MovieInfo values('%1','%2')").arg(fName).arg(fPath));
+        }
+    dbmodel->select();
+}
+
+
+

@@ -31,6 +31,9 @@ class DataProvider : public QObject
 public:
     explicit DataProvider(QObject *parent = 0);
     QSqlTableModel *getModel();
+    void addVirginMovie(QString,QString);
+    void startBigTransaction();
+    void endBigTransaction();
 
 signals:
 
