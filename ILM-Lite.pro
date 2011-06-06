@@ -34,8 +34,10 @@ HEADERS  += mainwindow.h \
     ./TMDB/tmdb_people.h \
     dataprovider.h
 
- QMAKE_CXXFLAGS_DEBUG += -pg
- QMAKE_LFLAGS_DEBUG += -pg
+CONFIG(release, debug|release):
+QMAKE_CFLAGS+=-pg
+QMAKE_CXXFLAGS+=-pg
+QMAKE_LFLAGS+=-pg
 
 FORMS    += mainwindow.ui
 
@@ -45,4 +47,4 @@ RESOURCES += \
 OTHER_FILES += \
     ScreenShots/screen1.png \
     README.markdown \
-<<<<<<< HEAD
+
