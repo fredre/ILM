@@ -59,10 +59,11 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    //QStringList *strlstMovieHeaders; //Headers for tblMovies
     QStringList *strlstMovieTypes; //The types of movies that should be loaded
     QSettings *settings; //Keeps appilcation settings
-    DataProvider *myData;
+    DataProvider *myData; //Provides acces to databse
+
+    void updatePlayedIcn();
 };
 
 #endif // MAINWINDOW_H

@@ -22,6 +22,8 @@ This file is part of ILM.
 #include "QFileDialog"
 
 #include <QtNetwork>
+#include <QCheckBox>
+#include <QPushButton>
 
 
 
@@ -38,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionRefresh->setIcon(refreshIcon);
 
    /*
-    //Old code my bro
+    //Old code brav
     //Setup the QStringList that will keep the tblMovies headers
     strlstMovieHeaders = new QStringList();
     strlstMovieHeaders->append("File Name");
@@ -64,8 +66,11 @@ MainWindow::MainWindow(QWidget *parent) :
     //Setup the database
     myData = new DataProvider();
 
+
+
     //Get the model for our one and only table and set to tblMoviesSql
     ui->tblMoviesSql->setModel(myData->getModel());
+
 
 }
 
@@ -93,9 +98,7 @@ void MainWindow::on_actionRefresh_triggered()
   //Save opened dir as "MovieDir"
   settings->setValue("MovieDir",dir);
 
-  //qDebug()<<*strlstFiles;
 
-  //Add the files to our table using the data provided
   //First step put myData in Insert mode (This has to do with speed improvements) we want to wrap all in one Transaction
   myData->startBigTransaction();
   foreach (const QFileInfo &i, filstFiles) {
@@ -103,19 +106,19 @@ void MainWindow::on_actionRefresh_triggered()
   }
   myData->endBigTransaction();
 
-  /*
-  //Add to table (Move to seprate function)
-  int row=0;
-  ui->tblMovies->setRowCount(filstFiles.count());
+ // updatePlayedIcn();//Show nice playd icn to user in tblview
+}
 
-   //Set the filenames
-   foreach (const QFileInfo &i, filstFiles) {
-    ui->tblMovies->setItem(row, 0, new QTableWidgetItem(i.fileName()));
-    ui->tblMovies->setItem(row, 1, new QTableWidgetItem(i.absoluteFilePath()));
-    row++;
-   }
-   */
+void MainWindow::updatePlayedIcn()
+{
+    //TODO add to resourses and figure out how to use icon in treeview
+   // QPushButton *button = new QPushButton;
+    //button->setIcon(QIcon::fromTheme("view-refresh"));
+    //button->setFlat(true);
 
+
+    //Adds an icon to show if the movie has been played
+    //ui->tblMoviesSql->setIndexWidget(myData->getModel()->index(2,2),button);
 }
 
 void MainWindow::on_tblMovies_cellClicked(int row, int column)

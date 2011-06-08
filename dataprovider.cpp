@@ -18,6 +18,7 @@ This file is part of ILM.
 #include "dataprovider.h"
 #include <QDir>
 #include <QDebug>
+#include <QModelIndex>
 
 DataProvider::DataProvider(QObject *parent) :
     QObject(parent)
@@ -30,8 +31,8 @@ DataProvider::DataProvider(QObject *parent) :
   path.append(QDir::separator()).append("ilmdb.sqlite");
   path = QDir::toNativeSeparators(path);
 
-  db.setDatabaseName(path);
-  //db.setDatabaseName(":memory:");
+  //db.setDatabaseName(path);
+  db.setDatabaseName(":memory:");
 
 
 
@@ -51,6 +52,8 @@ DataProvider::DataProvider(QObject *parent) :
   dbmodel->setTable("MovieInfo");
   dbmodel->select();
 
+
+
   qDebug() << dbmodel->lastError();
 }
 
@@ -63,7 +66,8 @@ bool DataProvider::CreateMovieTable()
        QSqlQuery query;
        ret = query.exec("CREATE TABLE MovieInfo("
                             "Name  TEXT,"
-                            "Path NUMERIC"
+                            "Path NUMERIC,"
+                            "Played NUMERIC"                //If the user has played the movie before
                             ");"
                         );
        }
@@ -84,6 +88,8 @@ void DataProvider::startBigTransaction()
 void DataProvider::endBigTransaction()
 {
     db.commit();
+
+
 }
 
 
@@ -94,7 +100,7 @@ void DataProvider::addVirginMovie(QString fName,QString fPath)
     if (db.isOpen())
         {
         QSqlQuery query;
-        query.exec(QString("INSERT INTO MovieInfo values('%1','%2')").arg(fName).arg(fPath));
+        query.exec(QString("INSERT INTO MovieInfo values('%1','%2','%3')").arg(fName).arg(fPath).arg("0"));
         }
     dbmodel->select();
 }
