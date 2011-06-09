@@ -15,38 +15,28 @@ This file is part of ILM.
     along with ILM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DATAPROVIDER_H
-#define DATAPROVIDER_H
+#include <QtGui>
 
-#include <QObject>
-#include <QSqlDatabase>
-#include <QSqlError>
-#include <QSqlTableModel>
-#include <QFile>
-#include <QSqlQuery>
 #include "dbmodel.h"
 
-class DataProvider : public QObject
+DBModel::DBModel(QObject *parent)
+    : QSqlTableModel(parent)
 {
-    Q_OBJECT
-public:
-    explicit DataProvider(QObject *parent = 0);
-    DBModel *getModel();
-    void addVirginMovie(QString,QString);
-    void startBigTransaction();
-    void endBigTransaction();
 
-signals:
+}
 
-public slots:
+QVariant DBModel::data(const QModelIndex &index, int role) const
+{
 
-private:
-     QSqlDatabase db;
-      DBModel *dbmodel;
+    QVariant value = QSqlQueryModel::data(index, role);
+        if (value.isValid() && role == Qt::DisplayRole) {
+            if (index.column() == 0)
+                return value.toString().prepend("#");
+            else if (index.column() == 2)
+                return value.toString().toUpper();
+        }
+        if (role == Qt::TextColorRole && index.column() == 1)
+            return qVariantFromValue(QColor(Qt::blue));
+        return value;
 
-     bool CreateMovieTable();
-
-
-};
-
-#endif // DATAPROVIDER_H
+}

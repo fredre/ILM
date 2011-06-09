@@ -15,38 +15,24 @@ This file is part of ILM.
     along with ILM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DATAPROVIDER_H
-#define DATAPROVIDER_H
+#ifndef DBMODEL_H
+#define DBMODEL_H
 
-#include <QObject>
-#include <QSqlDatabase>
-#include <QSqlError>
 #include <QSqlTableModel>
-#include <QFile>
-#include <QSqlQuery>
-#include "dbmodel.h"
+#include <QString>
+#include <QSqlDatabase>
 
-class DataProvider : public QObject
+class  DBModel : public QSqlTableModel
 {
     Q_OBJECT
+
 public:
-    explicit DataProvider(QObject *parent = 0);
-    DBModel *getModel();
-    void addVirginMovie(QString,QString);
-    void startBigTransaction();
-    void endBigTransaction();
+     DBModel(QObject *parent = 0);
 
-signals:
-
-public slots:
-
-private:
-     QSqlDatabase db;
-      DBModel *dbmodel;
-
-     bool CreateMovieTable();
-
-
+    QVariant data(const QModelIndex &item, int role) const;
 };
 
-#endif // DATAPROVIDER_H
+
+
+
+#endif // DBMODEL_H

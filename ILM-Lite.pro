@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     ./TMDB/tmdb_media.cpp \
     ./TMDB/tmdb_movies.cpp \
     ./TMDB/tmdb_people.cpp \
-    dataprovider.cpp
+    dataprovider.cpp \
+    dbmodel.cpp
 
 HEADERS  += mainwindow.h \
     ./TMDB/tmdb.h \
@@ -32,7 +33,8 @@ HEADERS  += mainwindow.h \
     ./TMDB/tmdb_media.h \
     ./TMDB/tmdb_movies.h \
     ./TMDB/tmdb_people.h \
-    dataprovider.h
+    dataprovider.h \
+    dbmodel.h
 
  CONFIG(release, debug|release):
  QMAKE_CFLAGS+=-pg
@@ -47,4 +49,3 @@ RESOURCES += \
 OTHER_FILES += \
     ScreenShots/screen1.png \
     README.markdown \
-

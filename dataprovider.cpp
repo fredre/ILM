@@ -48,7 +48,7 @@ DataProvider::DataProvider(QObject *parent) :
   CreateMovieTable();
 
 
-  dbmodel = new QSqlTableModel(this,db);
+  dbmodel = new DBModel(this);
   dbmodel->setTable("MovieInfo");
   dbmodel->select();
 
@@ -74,7 +74,7 @@ bool DataProvider::CreateMovieTable()
    return ret;
    }
 
-QSqlTableModel *DataProvider::getModel()
+DBModel *DataProvider::getModel()
 {
     //Returns the model for the Table MovieInfo
     return dbmodel;
