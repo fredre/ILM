@@ -19,6 +19,7 @@ This file is part of ILM.
 #include <QDir>
 #include <QDebug>
 #include <QModelIndex>
+#include <QDate>
 
 DataProvider::DataProvider(QObject *parent) :
     QObject(parent)
@@ -52,6 +53,8 @@ DataProvider::DataProvider(QObject *parent) :
   dbmodel->setTable("MovieInfo");
   dbmodel->select();
 
+  //Get the date today
+  todayDate = new QDate(QDate::currentDate());
 
 
   qDebug() << dbmodel->lastError();
@@ -65,9 +68,11 @@ bool DataProvider::CreateMovieTable()
        {
        QSqlQuery query;
        ret = query.exec("CREATE TABLE MovieInfo("
-                            "Name  TEXT,"
-                            "Path NUMERIC,"
-                            "Played NUMERIC"                //If the user has played the movie before
+                            "Played NUMERIC,"                //If the user has played the movie before
+                            "FileName  TEXT,"
+                            "DateAdded NUMERIC,"
+                            "Path NUMERIC"
+
                             ");"
                         );
        }
@@ -100,7 +105,10 @@ void DataProvider::addVirginMovie(QString fName,QString fPath)
     if (db.isOpen())
         {
         QSqlQuery query;
-        query.exec(QString("INSERT INTO MovieInfo values('%1','%2','%3')").arg(fName).arg(fPath).arg("0"));
+
+
+
+        query.exec(QString("INSERT INTO MovieInfo values('%3','%1','%4','%2')").arg(fName).arg(fPath).arg("0").arg(todayDate->toString()));
         }
     dbmodel->select();
 }

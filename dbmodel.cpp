@@ -19,6 +19,8 @@ This file is part of ILM.
 
 #include "dbmodel.h"
 
+
+
 DBModel::DBModel(QObject *parent)
     : QSqlTableModel(parent)
 {
@@ -28,15 +30,34 @@ DBModel::DBModel(QObject *parent)
 QVariant DBModel::data(const QModelIndex &index, int role) const
 {
 
-    QVariant value = QSqlQueryModel::data(index, role);
-        if (value.isValid() && role == Qt::DisplayRole) {
-            if (index.column() == 0)
-                return value.toString().prepend("#");
-            else if (index.column() == 2)
-                return value.toString().toUpper();
+    QVariant value = QSqlTableModel::data(index, role);
+
+        if (role == Qt::DecorationRole) {
+            //The Played col show nice icon indicating played
+            if (index.column() == 0){
+                if(value.toInt()== 0){
+                    return qVariantFromValue(QIcon::fromTheme("view-refresh"));
+                }
+            }
+
         }
-        if (role == Qt::TextColorRole && index.column() == 1)
-            return qVariantFromValue(QColor(Qt::blue));
+
+        if(role==Qt::DisplayRole)
+        {
+           //Dont show any text for the Played col we have icon
+            if(index.column()==0)
+            {
+                return "";
+            }
+        }
+
+       //Only for every 2nd background
+       if (role == Qt::BackgroundRole && (index.row()%2)==1 ){
+            return qVariantFromValue(QColor(231,231,231,255));
+        }
+
         return value;
 
 }
+
+

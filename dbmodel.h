@@ -30,9 +30,8 @@ public:
      DBModel(QObject *parent = 0);
 
     QVariant data(const QModelIndex &item, int role) const;
+
 };
-
-
 
 
 #endif // DBMODEL_H

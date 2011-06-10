@@ -46,6 +46,9 @@ private:
 
      bool CreateMovieTable();
 
+     //Keeps the current date
+     QDate *todayDate;
+
 
 };
 

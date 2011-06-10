@@ -67,7 +67,6 @@ MainWindow::MainWindow(QWidget *parent) :
     myData = new DataProvider();
 
 
-
     //Get the model for our one and only table and set to tblMoviesSql
     ui->tblMoviesSql->setModel(myData->getModel());
 
@@ -106,20 +105,25 @@ void MainWindow::on_actionRefresh_triggered()
   }
   myData->endBigTransaction();
 
- // updatePlayedIcn();//Show nice playd icn to user in tblview
+ //updatePlayedIcn();//Show nice playd icn to user in tblview
 }
 
-void MainWindow::updatePlayedIcn()
-{
-    //TODO add to resourses and figure out how to use icon in treeview
-   // QPushButton *button = new QPushButton;
-    //button->setIcon(QIcon::fromTheme("view-refresh"));
-    //button->setFlat(true);
+//void MainWindow::updatePlayedIcn()
+//{
 
 
-    //Adds an icon to show if the movie has been played
-    //ui->tblMoviesSql->setIndexWidget(myData->getModel()->index(2,2),button);
-}
+//    for (int i = 0; i < myData->getModel()->rowCount(); ++i)
+//       {
+//           for (int j = 0; j <myData->getModel()->columnCount(); ++j)
+//           {
+
+//                   myData->getModel()->setData(myData->getModel()->index(i, j), Qt::red, Qt:);
+
+//           }
+//       }
+
+
+//}
 
 void MainWindow::on_tblMovies_cellClicked(int row, int column)
 {
