@@ -30,6 +30,7 @@ public:
      DBModel(QObject *parent = 0);
 
     QVariant data(const QModelIndex &item, int role) const;
+    QVariant headerData(int section,Qt::Orientation orientation, int role) const;
 
 };
 

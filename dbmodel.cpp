@@ -27,6 +27,40 @@ DBModel::DBModel(QObject *parent)
 
 }
 
+ QVariant DBModel::headerData(int section,Qt::Orientation orientation, int role) const
+ {
+
+
+//     if(role==Qt::SizeHintRole && orientation == Qt::Horizontal){
+//         //Change the size of the firs col
+//         if(section ==0)
+//         {
+
+//            return(qVariantFromValue(QSize(2,2)));
+//         }
+
+//     }
+
+      if(role==Qt::DisplayRole){
+          //Dont display any text for the Played col.
+          if(section ==0 && orientation == Qt::Horizontal){
+              return( QString( "" ) );
+          }
+      }
+
+      if (role == Qt::DecorationRole) {
+
+          //Display a nice icon istread of the default text
+          if(section ==0 && orientation == Qt::Horizontal)
+          {
+              return qVariantFromValue(QIcon::fromTheme("video-x-generic"));
+          }
+      }
+
+     return QSqlTableModel::headerData( section, orientation, role );
+
+ }
+
 QVariant DBModel::data(const QModelIndex &index, int role) const
 {
 
@@ -35,8 +69,8 @@ QVariant DBModel::data(const QModelIndex &index, int role) const
         if (role == Qt::DecorationRole) {
             //The Played col show nice icon indicating played
             if (index.column() == 0){
-                if(value.toInt()== 0){
-                    return qVariantFromValue(QIcon::fromTheme("view-refresh"));
+                if(value.toInt()== 1){
+                    return qVariantFromValue(QIcon::fromTheme("media-playback-start"));
                 }
             }
 

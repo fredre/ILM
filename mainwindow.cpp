@@ -71,6 +71,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tblMoviesSql->setModel(myData->getModel());
 
 
+
+
 }
 
 MainWindow::~MainWindow()
@@ -104,6 +106,8 @@ void MainWindow::on_actionRefresh_triggered()
     myData->addVirginMovie(i.fileName(),i.absoluteFilePath());
   }
   myData->endBigTransaction();
+
+  ui->tblMoviesSql->resizeColumnsToContents();
 
  //updatePlayedIcn();//Show nice playd icn to user in tblview
 }
