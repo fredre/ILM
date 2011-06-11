@@ -72,7 +72,8 @@ void TMDB::finishedSlot(QNetworkReply * reply)
 
 void TMDB::exeQuery()
 {
-    namFetcher->get(QNetworkRequest(tmdbFetchUrl));
+    qDebug()<<tmdbFetchUrl;
+    //namFetcher->get(QNetworkRequest(tmdbFetchUrl));
 
 }
 
@@ -111,4 +112,9 @@ void TMDB::exeQuery()
  void TMDB::ammendApi()
  {
     tmdbFetchUrl = tmdbFetchUrl.resolved(tmdbFetchUrl.toString()+QUrl("/"+APIKEY).toString());
+ }
+
+ void TMDB::ammendCustom(QString data)
+ {
+   tmdbFetchUrl = tmdbFetchUrl.resolved(tmdbFetchUrl.toString()+QUrl("/"+data).toString());
  }

@@ -19,6 +19,7 @@ This file is part of ILM.
 #include <QDebug>
 #include <tmdb.h>
 #include <tmdb_misc.h>
+#include <tmdb_media.h>
 
 // main.cpp
 #include <QtCore>
@@ -33,13 +34,13 @@ public slots:
     void run()
     {
 
-        TMDB *tm = new TMDB_Misc("39ad119048b5408cb0fa038e929a3517");
+        TMDB *tm = new TMDB_Media("39ad119048b5408cb0fa038e929a3517");
 
         QObject::connect(tm, SIGNAL(dataReady(QByteArray)), this, SLOT(showData(QByteArray)));
         QObject::connect(tm, SIGNAL(dataError(qint32)), this, SLOT(dataError(qint32)));
 
+        tm->getInfo("");
 
-        tm->Genres_getList();
 
     }
 

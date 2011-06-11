@@ -18,10 +18,22 @@ This file is part of ILM.
 #ifndef TMDB_MEDIA_H
 #define TMDB_MEDIA_H
 
+#include <iostream>
+#include <fstream>
+#include <QtCore/QCoreApplication>
+
+using namespace std;
+
 class TMDB_Media : public TMDB
 {
 public:
     TMDB_Media(QString);
+    void getInfo(QString); //Must supply the path
+private:
+    //Methods used to get file hash
+    int MAX(int,int);
+    quint64 compute_hash(ifstream&);
+
 };
 
 #endif // TMDB_MEDIA_H

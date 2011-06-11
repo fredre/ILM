@@ -1,3 +1,5 @@
+//API TARGET 2.1
+
 /*
 This file is part of ILM.
 
@@ -24,6 +26,7 @@ This file is part of ILM.
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QDebug>
 
 class TMDB:public QObject
 {
@@ -36,6 +39,9 @@ public:
     void exeQuery();
 
      virtual void Genres_getList(){};
+     virtual void getInfo(QString){};
+
+    void ammendCustom(QString); //Adds custom params to url. They will be added after the API must start with the start or end must not contain /
 
 
 signals:
