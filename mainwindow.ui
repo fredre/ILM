@@ -93,7 +93,7 @@
       <widget class="QWebView" name="wbVwMovieInfi">
        <property name="url">
         <url>
-         <string>qrc:/new/web/Web/start.html</string>
+         <string>file:///home/fredre/ILMNEW/ILM-Lite/Web/internet-business/index.html</string>
         </url>
        </property>
       </widget>
