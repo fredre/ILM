@@ -36,7 +36,7 @@ TMDB_Media::TMDB_Media(QString apiKey)
      ifstream f;
      quint64 myhash;
 
-     f.open("/home/fredre/Desktop/breakdance.avi", ios::in|ios::binary|ios::ate);
+     f.open("/media/Storage/Movies/Gullivers Travels [2010 DVD].avi", ios::in|ios::binary|ios::ate);
      if (!f.is_open()) {
         cerr << "Error opening file" << endl;
      }
@@ -45,9 +45,18 @@ TMDB_Media::TMDB_Media(QString apiKey)
 
      QString hexadecimal;
      hexadecimal.setNum(myhash,16);
-     qDebug()<<hexadecimal;
 
-     ammendCustom("test");
+     //qDebug()<<hexadecimal;
+
+     ammendCustom(hexadecimal);
+
+     //Also ammend the file size
+     f.seekg(0, ios::end);
+     quint64  fileSize = f.tellg();
+     f.seekg(0, ios::beg);
+
+     ammendCustom(QString::number(fileSize));
+
      exeQuery();
  }
 

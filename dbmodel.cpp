@@ -31,17 +31,13 @@ DBModel::DBModel(QObject *parent)
  {
 
 
-//     if(role==Qt::SizeHintRole && orientation == Qt::Horizontal){
-//         //Change the size of the firs col
-//         if(section ==0)
-//         {
+     //Make sure header text is lef aligned
+     if(role==Qt::TextAlignmentRole)
+     {
+        return Qt::AlignLeft;
+     }
 
-//            return(qVariantFromValue(QSize(2,2)));
-//         }
-
-//     }
-
-      if(role==Qt::DisplayRole){
+     if(role==Qt::DisplayRole){
           //Dont display any text for the Played col.
           if(section ==0 && orientation == Qt::Horizontal){
               return( QString( "" ) );
@@ -65,6 +61,7 @@ QVariant DBModel::data(const QModelIndex &index, int role) const
 {
 
     QVariant value = QSqlTableModel::data(index, role);
+
 
         if (role == Qt::DecorationRole) {
             //The Played col show nice icon indicating played

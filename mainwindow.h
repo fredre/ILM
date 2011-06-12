@@ -45,8 +45,6 @@ private slots:
 
     void on_actionRefresh_triggered();
 
-    void on_tblMovies_cellClicked(int row, int column);
-
     void on_actionMovie_Information_triggered();
 
     void on_wbVwMovieInfi_loadStarted();
@@ -56,6 +54,8 @@ private slots:
     void on_wbVwMovieInfi_loadFinished(bool );
 
 
+
+    void on_tblMoviesSql_clicked(QModelIndex index);
 
 private:
     Ui::MainWindow *ui;

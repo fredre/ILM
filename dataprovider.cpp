@@ -32,12 +32,11 @@ DataProvider::DataProvider(QObject *parent) :
   path.append(QDir::separator()).append("ilmdb.sqlite");
   path = QDir::toNativeSeparators(path);
 
-  //db.setDatabaseName(path);
-  db.setDatabaseName(":memory:");
+  qDebug()<<path;
 
-
-
-  qDebug() <<db.open();
+  db.setDatabaseName(path);
+  db.open();
+  //db.setDatabaseName(":memory:");
   #endif
 
   //We Dont care about cates failure so speed things up and turn waiting for OS off

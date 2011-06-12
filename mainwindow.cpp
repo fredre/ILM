@@ -39,23 +39,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QIcon refreshIcon = QIcon::fromTheme("view-refresh");
     ui->actionRefresh->setIcon(refreshIcon);
 
-   /*
-    //Old code brav
-    //Setup the QStringList that will keep the tblMovies headers
-    strlstMovieHeaders = new QStringList();
-    strlstMovieHeaders->append("File Name");
-    strlstMovieHeaders->append("Full Path");
-   */
+
     //Setup the QStringList that will keep the types of movies that should be loaded
     strlstMovieTypes = new QStringList();
     strlstMovieTypes->append("*.avi");
 
-    /*
-    //Setup tblMovies
-    ui->tblMovies->clear();
-    ui->tblMovies->setColumnCount(strlstMovieHeaders->count());
-    ui->tblMovies->setHorizontalHeaderLabels(*strlstMovieHeaders);
-   */
 
     //Setup the settings class
     settings = new QSettings();
@@ -70,8 +58,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //Get the model for our one and only table and set to tblMoviesSql
     ui->tblMoviesSql->setModel(myData->getModel());
 
+    ui->tblMoviesSql->resizeColumnsToContents();
 
-
+    ui->tblMoviesSql->horizontalHeader()->setStretchLastSection( true );
 
 }
 
@@ -109,48 +98,8 @@ void MainWindow::on_actionRefresh_triggered()
 
   ui->tblMoviesSql->resizeColumnsToContents();
 
- //updatePlayedIcn();//Show nice playd icn to user in tblview
 }
 
-//void MainWindow::updatePlayedIcn()
-//{
-
-
-//    for (int i = 0; i < myData->getModel()->rowCount(); ++i)
-//       {
-//           for (int j = 0; j <myData->getModel()->columnCount(); ++j)
-//           {
-
-//                   myData->getModel()->setData(myData->getModel()->index(i, j), Qt::red, Qt:);
-
-//           }
-//       }
-
-
-//}
-
-void MainWindow::on_tblMovies_cellClicked(int row, int column)
-{
-    qDebug()<<row<<column;
-
-    //Get only the movie name
-    QString name = ui->tblMovies->item(row,0)->text();
-
-    //Remove the ext
-    name = name.remove(name.count()-4,4);
-
-    //Set the cache
-    QNetworkDiskCache *diskCache = new QNetworkDiskCache(this);
-    //Cache directory should be the current movie directory
-    diskCache->setCacheDirectory(settings->value("MovieDir").toString());
-    ui->wbVwMovieInfi->page()->networkAccessManager()->setCache(diskCache);
-
-
-
-    //Set the search URL
-    ui->wbVwMovieInfi->setUrl(QUrl("http://www.themoviedb.org/search?search="+name));
-
-}
 
 void MainWindow::on_actionMovie_Information_triggered()
 {
@@ -178,3 +127,21 @@ void MainWindow::on_wbVwMovieInfi_loadFinished(bool )
 
 
 
+
+void MainWindow::on_tblMoviesSql_clicked(QModelIndex index)
+{
+
+   QString name = index.sibling(index.row(),1).data(Qt::DisplayRole).toString();
+
+    //Remove the ext
+    name = name.remove(name.count()-4,4);
+
+    //Set the cache
+    QNetworkDiskCache *diskCache = new QNetworkDiskCache(this);
+    //Cache directory should be the current movie directory
+    diskCache->setCacheDirectory(settings->value("MovieDir").toString());
+    ui->wbVwMovieInfi->page()->networkAccessManager()->setCache(diskCache);
+
+    //Set the search URL
+    ui->wbVwMovieInfi->setUrl(QUrl("http://www.themoviedb.org/search?search="+name));
+}

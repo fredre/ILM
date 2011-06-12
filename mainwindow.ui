@@ -14,24 +14,14 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"> QMainWindow::separator {
-     background: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(0, 169, 255, 147), stop:0.497326 rgba(0, 0, 0, 147), stop:1 rgba(0, 169, 255, 147));
-
-     width: 10px; /* when vertical */
-     height: 10px; /* when horizontal */
- }
-
- QMainWindow::separator:hover {
-     background: red;
- }</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QTableView" name="tblMoviesSql">
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <property name="alternatingRowColors">
        <bool>false</bool>
@@ -45,10 +35,10 @@
       <attribute name="horizontalHeaderMinimumSectionSize">
        <number>15</number>
       </attribute>
+      <attribute name="verticalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
      </widget>
-    </item>
-    <item>
-     <widget class="QTableWidget" name="tblMovies"/>
     </item>
    </layout>
   </widget>
