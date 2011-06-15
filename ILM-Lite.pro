@@ -8,6 +8,7 @@ QT       += core gui
 QT       += webkit
 QT       += network
 QT       += sql
+QT       += phonon
 
 TARGET = ILM-Lite
 TEMPLATE = app

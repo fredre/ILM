@@ -32,6 +32,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
+    Phonon::VideoPlayer *player =
+             new Phonon::VideoPlayer(Phonon::VideoCategory, parentWidget);
+         player->play("/home/fredre/Desktop/breakdance.avi");
+
+
     ui->setupUi(this);
 
     //Setup the icon for refresh toobaritem TODO:(Provide fallback for windows)
@@ -91,7 +97,8 @@ void MainWindow::on_actionRefresh_triggered()
   //Call scanfolder that wil go looki looki snooki rap husssle
   if(load){
 
-      QFuture<void> future = QtConcurrent::run(this, &MainWindow::scanFolder,dirCurrent); //Once off thread
+      //QFuture<void> future = QtConcurrent::run(this, &MainWindow::scanFolder,dirCurrent); //Once off thread
+      scanFolder(dirCurrent);
   }
 
 }

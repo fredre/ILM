@@ -26,7 +26,8 @@ This file is part of ILM.
 #include <dataprovider.h>
 #include <QtCore>
 #include <QFuture>
-#include<QtConcurrentRun>
+#include <QtConcurrentRun>
+#include <Phonon>
 
 
 
@@ -70,6 +71,11 @@ private:
     DataProvider *myData; //Provides acces to databse
 
     void updatePlayedIcn();
+
+
+
+
+
 };
 
 #endif // MAINWINDOW_H
