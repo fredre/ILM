@@ -33,12 +33,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
 
+     ui->setupUi(this);
     Phonon::VideoPlayer *player =
-             new Phonon::VideoPlayer(Phonon::VideoCategory, parentWidget);
-         player->play("/home/fredre/Desktop/breakdance.avi");
+       new Phonon::VideoPlayer(Phonon::VideoCategory,ui->scrollArea);
+
+    //ui->dockWidgetContents->
+         player->play(Phonon::MediaSource("/media/Storage/Movies/10000 BC.avi"));
 
 
-    ui->setupUi(this);
+
 
     //Setup the icon for refresh toobaritem TODO:(Provide fallback for windows)
     //btw: here are the standard names as defined by freedesktop [http://standards.freedesktop.org/icon-naming-spec/latest/ar01s04.html]
