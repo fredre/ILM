@@ -135,10 +135,10 @@
   </action>
   <action name="actionRefresh">
    <property name="text">
-    <string>&amp;Refresh</string>
+    <string>&amp;Add Watch folder</string>
    </property>
    <property name="toolTip">
-    <string>Click Here to Refresh Movies</string>
+    <string>Add Watch Folder</string>
    </property>
   </action>
   <action name="actionMovie_Information">

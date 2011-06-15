@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Setup the icon for refresh toobaritem TODO:(Provide fallback for windows)
     //btw: here are the standard names as defined by freedesktop [http://standards.freedesktop.org/icon-naming-spec/latest/ar01s04.html]
-    QIcon refreshIcon = QIcon::fromTheme("view-refresh");
+    QIcon refreshIcon = QIcon::fromTheme("folder-new");
     ui->actionRefresh->setIcon(refreshIcon);
 
 
@@ -78,25 +78,36 @@ void MainWindow::on_actionE_xit_triggered()
 void MainWindow::on_actionRefresh_triggered()
 {
   //Ask user to select directory
+  //TODO: Not using settings anymore !!!!
   QString dir = QFileDialog::getExistingDirectory(this, tr("Open Movie Directory"),settings->value("MovieDir","/home").toString(),QFileDialog::ShowDirsOnly| QFileDialog::DontResolveSymlinks);
 
   //We must load all the movies files in the directory that the user selected
   QDir *dirCurrent =  new QDir(dir);
 
-  QList <QFileInfo> filstFiles(dirCurrent->entryInfoList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
 
-  //Save opened dir as "MovieDir"
-  settings->setValue("MovieDir",dir);
+  //Write open dir to Watch table. If false is returned the folder is already part of the watch list yo"
+  bool load = myData->addWatchFolder(dir);
 
+  //Call scanfolder that wil go looki looki snooki rap husssle
+  if(load){
 
-  //First step put myData in Insert mode (This has to do with speed improvements) we want to wrap all in one Transaction
-  myData->startBigTransaction();
-  foreach (const QFileInfo &i, filstFiles) {
-    myData->addVirginMovie(i.fileName(),i.absoluteFilePath());
+      QFuture<void> future = QtConcurrent::run(this, &MainWindow::scanFolder,dirCurrent); //Once off thread
   }
-  myData->endBigTransaction();
 
-  ui->tblMoviesSql->resizeColumnsToContents();
+}
+
+void MainWindow::scanFolder(QDir *scanme)
+{
+    QList <QFileInfo> filstFiles(scanme->entryInfoList(*strlstMovieTypes, QDir::Files | QDir::NoSymLinks));
+
+    //First step put myData in Insert mode (This has to do with speed improvements) we want to wrap all in one Transaction
+    myData->startBigTransaction();
+    foreach (const QFileInfo &i, filstFiles) {
+      myData->addVirginMovie(i.fileName(),i.absoluteFilePath());
+    }
+    myData->endBigTransaction();
+
+    ui->tblMoviesSql->resizeColumnsToContents();
 
 }
 

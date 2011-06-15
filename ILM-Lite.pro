@@ -43,8 +43,7 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-RESOURCES += \
-    Resources.qrc
+RESOURCES +=
 
 OTHER_FILES += \
     ScreenShots/screen1.png \

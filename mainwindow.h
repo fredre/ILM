@@ -24,6 +24,10 @@ This file is part of ILM.
 #include <QtDebug>
 #include <qsettings.h>
 #include <dataprovider.h>
+#include <QtCore>
+#include <QFuture>
+#include<QtConcurrentRun>
+
 
 
 
@@ -51,7 +55,9 @@ private slots:
 
     void on_wbVwMovieInfi_loadProgress(int progress);
 
-    void on_wbVwMovieInfi_loadFinished(bool );
+    void on_wbVwMovieInfi_loadFinished(bool);
+
+    void scanFolder(QDir*);
 
 
 

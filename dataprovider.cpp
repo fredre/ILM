@@ -74,6 +74,13 @@ bool DataProvider::CreateMovieTable()
 
                             ");"
                         );
+
+
+
+       ret = query.exec("CREATE TABLE Watch("
+                            "Path TEXT"
+                            ");"
+                        );
        }
    return ret;
    }
@@ -105,11 +112,34 @@ void DataProvider::addVirginMovie(QString fName,QString fPath)
         {
         QSqlQuery query;
 
-
-
         query.exec(QString("INSERT INTO MovieInfo values('%3','%1','%4','%2')").arg(fName).arg(fPath).arg("0").arg(todayDate->toString()));
         }
     dbmodel->select();
+}
+
+bool DataProvider::addWatchFolder(QString path)
+{
+    bool add=true;
+
+    if (db.isOpen())
+        {
+
+
+            //First check if the watch folder is not already in the table
+            QSqlQuery selQuery;
+
+           qDebug()<<selQuery.exec(QString("SELECT * FROM Watch WHERE Path='%1'").arg(path));
+
+            while (selQuery.next()) {
+                    add = false;
+               }
+
+            if(add) {
+                QSqlQuery insQuery;
+                insQuery.exec(QString("INSERT INTO Watch values('%1')").arg(path));
+            }
+        }
+    return add;
 }
 
 

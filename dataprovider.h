@@ -33,6 +33,7 @@ public:
     explicit DataProvider(QObject *parent = 0);
     DBModel *getModel();
     void addVirginMovie(QString,QString);
+    bool addWatchFolder(QString);
     void startBigTransaction();
     void endBigTransaction();
 
