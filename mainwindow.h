@@ -64,6 +64,10 @@ private slots:
 
     void on_tblMoviesSql_clicked(QModelIndex index);
 
+    void on_btnPreviewPlay_clicked();
+
+    void on_btnPrevieStop_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList *strlstMovieTypes; //The types of movies that should be loaded
@@ -71,6 +75,8 @@ private:
     DataProvider *myData; //Provides acces to databse
 
     void updatePlayedIcn();
+
+    Phonon::VideoPlayer *player;
 
 
 

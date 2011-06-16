@@ -18,10 +18,17 @@ the movie to the copy list. Along with the movies and their related information 
 
 News
 ----
+### 16/06/2011
+
+> The application is actually very useful and all of the implemented features planned for V 1.0 is working in Linux. Will start working on Windows build soon.
+> Below is a screen-shot showing my favourite movie ;)
+> Notice the gui changes from the mockups. I am also sorting out some TMDB API issues (Already wrote the code) so the movie info page will probably change very soon.
+![You should see A screenshot here](https://github.com/fredre/ILM/raw/master/ScreenShots/preview.png "Planned for version 1")
 
 ### 05/05/2011
 
 > Project is now on github
+> Hello world.
 
 Planned for version 1.0 
 -----------------------
@@ -33,13 +40,14 @@ Below is some GUI mock-ups of what I want in version 1.0
 
 Here is the full list of features planned for version 1.0 and what I have done so far
 
-* Allow user to select folder containing movies. 
-* Scan movie for folders and show in tree
-* When movie is selected search TMDb and show possible matches
-* Allow user to select movie from list to see more info
+* Allow user to select folder containing movies. [DONE]
+* Scan movie for folders and show in tree [DONE]
+* When movie is selected search TMDb and show possible matches [90% DONE]
+* Allow user to select movie from list to see more info [90% DONE]
 * Provide button that goes back to search results for the movie
-* Save the movie in file alongside the movie file for off-line access
-* Implement play button
+* Save the movie in file alongside the movie file for off-line access [DONE]
+* Implement play button to open movie in media player
+* Implement quick preview [DONE]
 
 
 

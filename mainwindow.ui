@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>I-L-M</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -143,8 +143,8 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>102</width>
-     <height>127</height>
+     <width>206</width>
+     <height>160</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -153,21 +153,33 @@
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QScrollArea" name="scrollArea">
-       <property name="widgetResizable">
-        <bool>true</bool>
-       </property>
-       <widget class="QWidget" name="scrollAreaWidgetContents">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>82</width>
-          <height>82</height>
-         </rect>
-        </property>
-       </widget>
-      </widget>
+      <layout class="QVBoxLayout" name="VidWinMainVertical">
+       <item>
+        <layout class="QHBoxLayout" name="VidMinMainHor">
+         <item>
+          <widget class="QPushButton" name="btnPreviewPlay">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnPrevieStop">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblPreViewTitle">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

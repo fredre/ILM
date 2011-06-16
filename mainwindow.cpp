@@ -34,20 +34,42 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
      ui->setupUi(this);
-    Phonon::VideoPlayer *player =
-       new Phonon::VideoPlayer(Phonon::VideoCategory,ui->scrollArea);
 
-    //ui->dockWidgetContents->
-         player->play(Phonon::MediaSource("/media/Storage/Movies/10000 BC.avi"));
+     //The player
+     player = new Phonon::VideoPlayer(Phonon::VideoCategory);
+
+    //The position slider
+     Phonon::SeekSlider *slider = new Phonon::SeekSlider;
+     slider->setMediaObject(player->mediaObject());
+     slider->show();
+
+     //The volume controll
+     Phonon::VolumeSlider *volumeSlider = new Phonon::VolumeSlider;
+     volumeSlider->setAudioOutput(player->audioOutput());
+
+     //First add the player
+     ui->VidWinMainVertical->addWidget(player,5);
+
+     //Then add slider
+     ui->VidWinMainVertical->addWidget(slider);
+
+     //Add the volume
+     ui->VidMinMainHor->addWidget(volumeSlider);
 
 
 
+
+
+     //player->play(Phonon::MediaSource("/media/Storage/Movies/10000 BC.avi"));
 
     //Setup the icon for refresh toobaritem TODO:(Provide fallback for windows)
     //btw: here are the standard names as defined by freedesktop [http://standards.freedesktop.org/icon-naming-spec/latest/ar01s04.html]
     QIcon refreshIcon = QIcon::fromTheme("folder-new");
     ui->actionRefresh->setIcon(refreshIcon);
 
+    //Setup the icopn for the play button
+    ui->btnPreviewPlay->setIcon(QIcon::fromTheme("media-playback-start"));
+ui->btnPrevieStop->setIcon(QIcon::fromTheme("media-playback-stop"));
 
     //Setup the QStringList that will keep the types of movies that should be loaded
     strlstMovieTypes = new QStringList();
@@ -70,6 +92,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tblMoviesSql->resizeColumnsToContents();
 
     ui->tblMoviesSql->horizontalHeader()->setStretchLastSection( true );
+
+    //Make sure the windows is mazimized
+    this->setWindowState(Qt::WindowMaximized);
 
 }
 
@@ -152,7 +177,19 @@ void MainWindow::on_wbVwMovieInfi_loadFinished(bool )
 void MainWindow::on_tblMoviesSql_clicked(QModelIndex index)
 {
 
+   //Get the filename
    QString name = index.sibling(index.row(),1).data(Qt::DisplayRole).toString();
+
+   //Get the full path
+   QString path = index.sibling(index.row(),3).data(Qt::DisplayRole).toString();
+
+
+
+   //Set the name of the preview for the preview window
+   ui->lblPreViewTitle->setText(name);
+
+   //Set the correct vid path for when the preview play button is clicked
+   player->load(Phonon::MediaSource(path));
 
     //Remove the ext
     name = name.remove(name.count()-4,4);
@@ -165,4 +202,14 @@ void MainWindow::on_tblMoviesSql_clicked(QModelIndex index)
 
     //Set the search URL
     ui->wbVwMovieInfi->setUrl(QUrl("http://www.themoviedb.org/search?search="+name));
+}
+
+void MainWindow::on_btnPreviewPlay_clicked()
+{
+  player->play();
+}
+
+void MainWindow::on_btnPrevieStop_clicked()
+{
+    player->stop();
 }
