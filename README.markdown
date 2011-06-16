@@ -21,8 +21,12 @@ News
 ### 16/06/2011
 
 > The application is actually very useful and all of the implemented features planned for V 1.0 is working in Linux. Will start working on Windows build soon.
+
 > Below is a screen-shot showing my favourite movie ;)
+
 > Notice the gui changes from the mockups. I am also sorting out some TMDB API issues (Already wrote the code) so the movie info page will probably change very soon.
+>
+
 ![You should see A screenshot here](https://github.com/fredre/ILM/raw/master/ScreenShots/preview.png "Planned for version 1")
 
 ### 05/05/2011
@@ -66,7 +70,7 @@ Technical
 ---------
 
 ILM is written in C++ with the QT GUI library. I use QT creator for the IDE.
-My development platform is Linux (But it should work on Windows and Mac also)
+My development platform is Linux (But it should work on Windows and Mac)
 
 
 
