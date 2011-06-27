@@ -208,3 +208,11 @@ void MainWindow::on_btnPrevieStop_clicked()
 {
     player->stop();
 }
+
+void MainWindow::on_action_About_triggered()
+{
+    //Show a nice about box
+    QString date = QString::fromLocal8Bit(__DATE__);
+    QString time = QString::fromLocal8Bit(__TIME__);
+    QMessageBox::about(this,"About ILM","Non Gnome/KDE icons by: http://www.famfamfam.com/lab/icons/silk/");
+}

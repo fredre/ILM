@@ -28,6 +28,7 @@ This file is part of ILM.
 #include <QFuture>
 #include <QtConcurrentRun>
 #include <Phonon>
+#include <QMessageBox>
 
 
 
@@ -67,6 +68,8 @@ private slots:
     void on_btnPreviewPlay_clicked();
 
     void on_btnPrevieStop_clicked();
+
+    void on_action_About_triggered();
 
 private:
     Ui::MainWindow *ui;
