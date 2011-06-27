@@ -44,7 +44,8 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-RESOURCES +=
+RESOURCES += \
+    silk.qrc
 
 OTHER_FILES += \
     ScreenShots/screen1.png \

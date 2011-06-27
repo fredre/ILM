@@ -150,7 +150,7 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>206</width>
+     <width>291</width>
      <height>160</height>
     </size>
    </property>
@@ -182,7 +182,7 @@
        <item>
         <widget class="QLabel" name="lblPreViewTitle">
          <property name="text">
-          <string>TextLabel</string>
+          <string>Click movie name and press play  button</string>
          </property>
         </widget>
        </item>

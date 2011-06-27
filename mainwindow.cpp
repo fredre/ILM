@@ -57,8 +57,22 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->VidMinMainHor->addWidget(volumeSlider);
 
 
-    //Setup the icon for refresh toobaritem TODO:(Provide fallback for windows)
+    //Setup the icons(Provide fallback for windows)
     //btw: here are the standard names as defined by freedesktop [http://standards.freedesktop.org/icon-naming-spec/latest/ar01s04.html]
+    //Fallback implemented in silk.qrc
+     static const char * GENERIC_ICON_TO_CHECK = "folder-new";
+     static const char * FALLBACK_ICON_THEME = "silk";
+     if (!QIcon::hasThemeIcon(GENERIC_ICON_TO_CHECK)) {
+         //If there is no default working icon theme then we should
+         //use an icon theme that we provide via a .qrc file
+         //This case happens under Windows and Mac OS X
+         //This does not happen under GNOME or KDE
+         QIcon::setThemeName(FALLBACK_ICON_THEME);
+     }
+
+
+
+
     QIcon refreshIcon = QIcon::fromTheme("folder-new");
     ui->actionRefresh->setIcon(refreshIcon);
 
