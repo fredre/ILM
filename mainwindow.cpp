@@ -57,11 +57,6 @@ MainWindow::MainWindow(QWidget *parent) :
      ui->VidMinMainHor->addWidget(volumeSlider);
 
 
-
-
-
-     //player->play(Phonon::MediaSource("/media/Storage/Movies/10000 BC.avi"));
-
     //Setup the icon for refresh toobaritem TODO:(Provide fallback for windows)
     //btw: here are the standard names as defined by freedesktop [http://standards.freedesktop.org/icon-naming-spec/latest/ar01s04.html]
     QIcon refreshIcon = QIcon::fromTheme("folder-new");
@@ -69,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Setup the icopn for the play button
     ui->btnPreviewPlay->setIcon(QIcon::fromTheme("media-playback-start"));
-ui->btnPrevieStop->setIcon(QIcon::fromTheme("media-playback-stop"));
+    ui->btnPrevieStop->setIcon(QIcon::fromTheme("media-playback-stop"));
 
     //Setup the QStringList that will keep the types of movies that should be loaded
     strlstMovieTypes = new QStringList();
