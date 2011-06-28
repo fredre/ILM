@@ -6,4 +6,7 @@
         <file alias="16x16/media-playback-stop.png">icons/silk/control_stop_blue.png</file>
         <file alias="16x16/video-x-generic.png">icons/silk/film.png</file>
     </qresource>
+    <qresource prefix="/web/pages">
+        <file alias="web/about.html">Web/about.html</file>
+    </qresource>
 </RCC>

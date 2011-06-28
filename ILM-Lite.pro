@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     ./TMDB/tmdb_movies.cpp \
     ./TMDB/tmdb_people.cpp \
     dataprovider.cpp \
-    dbmodel.cpp
+    dbmodel.cpp \
+    about.cpp
 
 HEADERS  += mainwindow.h \
     ./TMDB/tmdb.h \
@@ -35,14 +36,16 @@ HEADERS  += mainwindow.h \
     ./TMDB/tmdb_movies.h \
     ./TMDB/tmdb_people.h \
     dataprovider.h \
-    dbmodel.h
+    dbmodel.h \
+    about.h
 
  CONFIG(release, debug|release):
  QMAKE_CFLAGS+=-pg
  QMAKE_CXXFLAGS+=-pg
  QMAKE_LFLAGS+=-pg
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    about.ui
 
 RESOURCES += \
     silk.qrc

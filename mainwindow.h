@@ -29,6 +29,7 @@ This file is part of ILM.
 #include <QtConcurrentRun>
 #include <Phonon>
 #include <QMessageBox>
+#include <about.h>
 
 
 
