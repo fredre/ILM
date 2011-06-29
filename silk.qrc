@@ -8,5 +8,9 @@
     </qresource>
     <qresource prefix="/web/pages">
         <file alias="web/about.html">Web/about.html</file>
+        <file alias="/web/screen.css">Web/screen.css</file>
+        <file alias="/web/fancy/screen.css">Web/fancy-type/screen.css</file>
+        <file alias="/web/test.jpg">Web/test.jpg</file>
+        <file alias="/web/hello.jpg">Web/hello.jpg</file>
     </qresource>
 </RCC>
