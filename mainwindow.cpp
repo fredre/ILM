@@ -229,3 +229,9 @@ void MainWindow::on_action_About_triggered()
     About *awin = new About(this);
     awin->show();
 }
+
+void MainWindow::on_actionMovie_Preview_triggered()
+{
+    //Show the movie preview windows again
+   ui->vidWindow->showNormal();
+}

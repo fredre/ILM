@@ -54,7 +54,7 @@
      <x>0</x>
      <y>0</y>
      <width>946</width>
-     <height>27</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -74,6 +74,7 @@
      <string>&amp;View</string>
     </property>
     <addaction name="actionMovie_Information"/>
+    <addaction name="actionMovie_Preview"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -212,6 +213,11 @@
   <action name="action_About">
    <property name="text">
     <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionMovie_Preview">
+   <property name="text">
+    <string>Movie &amp;Preview</string>
    </property>
   </action>
  </widget>

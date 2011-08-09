@@ -72,6 +72,8 @@ private slots:
 
     void on_action_About_triggered();
 
+    void on_actionMovie_Preview_triggered();
+
 private:
     Ui::MainWindow *ui;
     QStringList *strlstMovieTypes; //The types of movies that should be loaded
