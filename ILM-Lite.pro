@@ -9,11 +9,17 @@ QT       += webkit
 QT       += network
 QT       += sql
 QT       += phonon
+QT       += xml
+
 
 TARGET = ILM-Lite
 TEMPLATE = app
 
 INCLUDEPATH += ./../../TMDB/
+
+#The QTXML Lib
+INCLUDEPATH += ./OpenSub/libmaia/trunk
+LIBS += /home/fredre/ILMNEW/ILM-Lite/OpenSub/libmaia/trunk/libmaia.a
 
 
 SOURCES += main.cpp\
@@ -26,7 +32,8 @@ SOURCES += main.cpp\
     ./TMDB/tmdb_people.cpp \
     dataprovider.cpp \
     dbmodel.cpp \
-    about.cpp
+    about.cpp\
+
 
 HEADERS  += mainwindow.h \
     ./TMDB/tmdb.h \
@@ -38,6 +45,12 @@ HEADERS  += mainwindow.h \
     dataprovider.h \
     dbmodel.h \
     about.h
+
+
+
+
+
+
 
  CONFIG(release, debug|release):
  QMAKE_CFLAGS+=-pg

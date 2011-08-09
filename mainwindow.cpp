@@ -27,6 +27,13 @@ This file is part of ILM.
 
 
 
+#include <QVariantList>
+#include<QString>
+
+#include "maiaXmlRpcClient.h"
+
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -203,15 +210,35 @@ void MainWindow::on_tblMoviesSql_clicked(QModelIndex index)
     //Remove the ext
     name = name.remove(name.count()-4,4);
 
+    //Test the XMLrpc client
+    MaiaXmlRpcClient *rpcClient = new MaiaXmlRpcClient(QUrl("http://api.opensubtitles.org/xml-rpc "), this);
+
+    QVariantList args;
+   // args << 5;
+    //args << "this is a string, no, not what you think :>";
+
+    rpcClient->call("ServerInfo()", args,
+     this, SLOT(myResponseMethod(QVariant&)),
+    this, SLOT(myFaultResponse(int, const QString &)));
+
     //Set the cache
-    QNetworkDiskCache *diskCache = new QNetworkDiskCache(this);
+    //QNetworkDiskCache *diskCache = new QNetworkDiskCache(this);
     //Cache directory should be the current movie directory
-    diskCache->setCacheDirectory(settings->value("MovieDir").toString());
-    ui->wbVwMovieInfi->page()->networkAccessManager()->setCache(diskCache);
+    //diskCache->setCacheDirectory(settings->value("MovieDir").toString());
+    //ui->wbVwMovieInfi->page()->networkAccessManager()->setCache(diskCache);
 
     //Set the search URL
-    ui->wbVwMovieInfi->setUrl(QUrl("http://www.themoviedb.org/search?search="+name));
+    //ui->wbVwMovieInfi->setUrl(QUrl("http://www.themoviedb.org/search?search="+name));
 }
+
+void MainWindow::myResponseMethod(QVariant &arg) {
+                // do something with the arg
+ }
+
+ void MainWindow::myFaultResponse(int error, const QString &message) {
+                qDebug() << "An Error occoured, Code: " << error << " Message: " << message;
+}
+
 
 void MainWindow::on_btnPreviewPlay_clicked()
 {

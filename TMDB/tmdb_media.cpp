@@ -29,6 +29,7 @@ TMDB_Media::TMDB_Media(QString apiKey)
  {
      //The Media.getInfo method is used to retrieve specific information about a movie
      //but instead of passing a TMDb ID, you pass a file hash & bytesize.
+     //This is currently not working on the serverside !!!
 
      ammendQueryMethod("Media.getInfo");
 

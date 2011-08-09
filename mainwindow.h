@@ -74,6 +74,10 @@ private slots:
 
     void on_actionMovie_Preview_triggered();
 
+    void myResponseMethod(QVariant&);
+
+    void myFaultResponse(int, const QString&) ;
+
 private:
     Ui::MainWindow *ui;
     QStringList *strlstMovieTypes; //The types of movies that should be loaded
